@@ -68,7 +68,7 @@ export function buildDocs(profile) {
   docs.push({
     id: "about",
     title: profile.person.name,
-    text: [profile.person.bio, ...profile.about.paragraphs].filter(Boolean).join("\n\n"),
+    text: [profile.person.bio, ...(profile.about.assistant || profile.about.paragraphs)].filter(Boolean).join("\n\n"),
     match: profile.about.match || []
   });
 
@@ -227,9 +227,6 @@ function formatJob(job) {
   if (visitorText(job.dates)) lines.push(job.dates);
   if (visitorText(job.location)) lines.push(job.location);
   if (visitorText(job.summary)) lines.push(job.summary);
-  for (const duty of job.duties || []) {
-    if (visitorText(duty)) lines.push(`• ${duty}`);
-  }
   return lines.join("\n");
 }
 

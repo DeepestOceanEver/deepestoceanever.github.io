@@ -10,7 +10,7 @@
     "bio": "PhD Candidate @ Kent State | Robotics • Quantum Sensors • AI | Ex-Medtronic, Philips & Siemens | Exploring Claude, Codex, Cursor, Gemini & OpenClaw",
     "portrait": "assets/portrait.jpg",
     "portraitAlt": "Portrait of Md Nazmul Islam",
-    "valueStatement": "Interpretable robotics, sensing, and clinical AI for healthcare.",
+    "valueStatement": "I work on interpretable robotics, sensing, and clinical AI for healthcare.",
     "keywords": [
       "Robotics",
       "Quantum sensors",
@@ -19,9 +19,9 @@
   },
   "about": {
     "paragraphs": [
-      "He is a PhD candidate in Mechatronics, Robotics and Automation Engineering at Kent State University, and a graduate assistant there since August 2024. His advisor is Dr. Tao Shen.",
-      "Before that he was a field technical service specialist for Hugo Surgical Robotics at Medtronic (2021–August 2024), a field service engineer for CT and PET-CT at Philips Healthcare (2013–2021), an executive engineer for MRI and X-ray at Siemens Bangladesh Ltd. (2012–2013), and a part-time lecturer in EEE at Daffodil International University (2012–2013).",
-      "His research interests are robotics, imaging systems, quantum sensors, computer vision, human-machine interfaces, control systems, machine learning, deep learning, healthcare AI, explainable AI, biomedical signal analysis, data mining, and IoT."
+      "I'm a PhD candidate in Mechatronics, Robotics and Automation Engineering at Kent State University, and a graduate assistant here since August 2024. My advisor is Dr. Tao Shen.",
+      "Before that I was a field technical service specialist for Hugo Surgical Robotics at Medtronic (2021–August 2024), a field service engineer for CT and PET-CT at Philips Healthcare (2013–2021), an executive engineer for MRI and X-ray at Siemens Bangladesh Ltd. (2012–2013), and a part-time lecturer in EEE at Daffodil International University (2012–2013).",
+      "My research interests are robotics, imaging systems, quantum sensors, computer vision, human-machine interfaces, control systems, machine learning, deep learning, healthcare AI, explainable AI, biomedical signal analysis, data mining, and IoT."
     ],
     "match": [
       "who is he",
@@ -31,6 +31,11 @@
       "tell me about nazmul",
       "background",
       "bio"
+    ],
+    "assistant": [
+      "He is a PhD candidate in Mechatronics, Robotics and Automation Engineering at Kent State University, and a graduate assistant there since August 2024. His advisor is Dr. Tao Shen.",
+      "Before that he was a field technical service specialist for Hugo Surgical Robotics at Medtronic (2021–August 2024), a field service engineer for CT and PET-CT at Philips Healthcare (2013–2021), an executive engineer for MRI and X-ray at Siemens Bangladesh Ltd. (2012–2013), and a part-time lecturer in EEE at Daffodil International University (2012–2013).",
+      "His research interests are robotics, imaging systems, quantum sensors, computer vision, human-machine interfaces, control systems, machine learning, deep learning, healthcare AI, explainable AI, biomedical signal analysis, data mining, and IoT."
     ]
   },
   "locationNote": {
@@ -315,8 +320,8 @@
       "current": true,
       "mark": "KS",
       "duties": [
-        "Research on medical robotics",
-        "Taking and assisting the Signal and Electronics lab"
+        "I research medical robotics",
+        "I take and assist the Signal and Electronics lab"
       ],
       "summary": "Since August 2024 he has been a Graduate Assistant and PhD candidate at Kent State University in Kent, Ohio. He does research on medical robotics and takes and assists the Signal and Electronics lab. His PhD advisor is Dr. Tao Shen, and his CGPA is 4.00/4.00.",
       "match": [
@@ -337,15 +342,15 @@
       "current": false,
       "mark": "MD",
       "duties": [
-        "Field service support for Hugo robotic systems",
-        "Installation and commissioning",
-        "Uptime of Hugo robotic systems",
-        "Spare-parts logistics and inventory planning for the ISC region",
-        "Upkeep of the demo Hugo system",
-        "Customer visits and the post-sales network",
-        "FCA and quality guidelines from the business unit",
-        "Service-activity dashboard",
-        "O-arm and navigation systems"
+        "I give field service support for Hugo robotic systems",
+        "I handle installation and commissioning",
+        "I look after uptime of Hugo robotic systems",
+        "I plan spare-parts logistics and inventory for the ISC region",
+        "I keep up the demo Hugo system",
+        "I visit customers and maintain the post-sales network",
+        "I follow FCA and quality guidelines from the business unit",
+        "I maintain the service-activity dashboard",
+        "I support O-arm and navigation systems"
       ],
       "summary": "From 2021 to August 2024 he was a Field Technical Service Specialist for Hugo Surgical Robotics at Medtronic. He gave field service support, handled installation and commissioning, system uptime, spare-parts logistics and inventory for the ISC region, the demo Hugo system, customer visits, FCA and quality guidelines, the service dashboard, and O-arm and navigation systems.",
       "match": [
@@ -366,10 +371,10 @@
       "current": false,
       "mark": "PH",
       "duties": [
-        "Installation, preventive maintenance, upgrades, troubleshooting, and repair of CT/AMI systems",
-        "The same work for multimodality workstations (ISP, EBW)",
-        "Service records, reports, and compliance",
-        "Support for regional CP%, revenue, and AR targets"
+        "I install, maintain, upgrade, troubleshoot, and repair CT/AMI systems",
+        "I do the same for multimodality workstations (ISP, EBW)",
+        "I keep service records, reports, and compliance",
+        "I support regional CP%, revenue, and AR targets"
       ],
       "summary": "From 2013 to 2021 he was a Field Service Engineer for CT and PET-CT at Philips Healthcare. He installed, maintained, upgraded, troubleshot, and repaired CT/AMI systems and multimodality workstations (ISP, EBW), kept service records and compliance, and supported regional CP%, revenue, and AR targets.",
       "match": [
@@ -390,8 +395,8 @@
       "current": false,
       "mark": "SI",
       "duties": [
-        "Servicing, maintenance, and installation of MRI systems",
-        "Support for heliophos-D and orthophos (Sirona)"
+        "I service, maintain, and install MRI systems",
+        "I support heliophos-D and orthophos (Sirona)"
       ],
       "summary": "From 2012 to 2013 he was an Executive Engineer for MRI and X-ray at Siemens Bangladesh Ltd. He serviced, maintained, and installed MRI systems and supported heliophos-D and orthophos (Sirona).",
       "match": [
@@ -413,7 +418,7 @@
       "current": false,
       "mark": "DI",
       "duties": [
-        "Labs and classes in Digital Signal Processing, Electrical Circuits, and Electronic Circuit-1"
+        "I teach labs and classes in Digital Signal Processing, Electrical Circuits, and Electronic Circuit-1"
       ],
       "summary": "From 2012 to 2013 he was a part-time Lecturer in EEE at Daffodil International University. He took labs and classes in Digital Signal Processing, Electrical Circuits, and Electronic Circuit-1.",
       "match": [
@@ -679,7 +684,7 @@
     "whatsapp": "https://wa.me/12342829758",
     "whatsappLabel": "+1 234-282-9758",
     "cv": "assets/cv.pdf",
-    "collaboration": "Open to research collaborations, healthcare AI consulting, and robotics partnerships.",
+    "collaboration": "He is open to research collaborations, industry partnerships, and speaking or mentoring in robotics, medical and surgical robotics, quantum sensing, and AI.",
     "match": [
       "how can i contact him",
       "how can i contact nazmul",
@@ -701,7 +706,7 @@
     "scholarLabel": "Google Scholar profile"
   },
   "chat": {
-    "greeting": "Hi. Ask about Nazmul’s studies, advisor, jobs, research, projects, or how to reach him. Answers come from his CV and public profile, in your browser.",
+    "greeting": "Hi. I'm Nazmul. Ask about my studies, advisor, jobs, research, projects, or how to reach me. Answers come from my CV and public profile, in your browser.",
     "suggestions": [
       "Where does he study?",
       "What did he work on at Medtronic?",
@@ -822,5 +827,12 @@
         "O-arm imaging technical training, Hyderabad, India, February 2022"
       ]
     }
-  ]
+  ],
+  "collaborate": {
+    "title": "Research, industry, and mentoring.",
+    "paragraphs": [
+      "I'm open to research collaborations and industry partnerships.",
+      "I'm also glad to speak or mentor in robotics, medical and surgical robotics, quantum sensing, and AI."
+    ]
+  }
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog · Md Nazmul Islam</title>
+    <meta name="description" content="Notes from my work in robotics, sensing, and AI." />
+    <link rel="canonical" href="https://nazmulislam-lab.github.io/blog/" />
+    <link rel="alternate" type="application/rss+xml" title="Md Nazmul Islam" href="../feed.xml" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("nazmul-theme");
+          var theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body data-blog="index">
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">
+        <span class="mark" aria-hidden="true">NI</span>
+        <span>Nazmul</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" data-nav>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#collaborate">Collaborate</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+        <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+      </button>
+    </header>
+    <main id="main" class="section blog-main">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="kicker">Blog</p>
+          <h1>Notes from my work.</h1>
+        </div>
+        <a class="button button-ghost" href="../feed.xml">RSS</a>
+      </div>
+      <p class="lede">Short notes on robotics, sensing, and AI. I only write about work that is already on this site.</p>
+      <p class="status" data-blog-status role="status">Loading posts…</p>
+      <div class="post-list" data-blog-list></div>
+    </main>
+    <footer class="site-footer">
+      <p>Md Nazmul Islam · Kent, Ohio</p>
+      <p>This is my site. © <span data-year>2026</span></p>
+    </footer>
+    <script type="module" src="../js/blog.js"></script>
+  </body>
+</html>
