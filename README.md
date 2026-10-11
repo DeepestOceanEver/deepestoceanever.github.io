@@ -20,7 +20,7 @@ Change a fact there, commit, and push to `main`. Refresh the site. You do not ne
 | Jobs | `experience`. Leave `dates` as `""` to hide them. `achievement` is the one line on the timeline |
 | Skills | `skills` |
 | Projects | `projects` (`image` is the card preview) |
-| Email, GitHub, LinkedIn, Google Scholar, CV | `contact` (`scholar` is the Google Scholar profile URL) |
+| Email, GitHub, LinkedIn, WhatsApp, Google Scholar, CV | `contact`. LinkedIn is `https://www.linkedin.com/in/nazmul87/`. WhatsApp is `contact.whatsapp` (`https://wa.me/12342829758`) and `contact.whatsappLabel` (`+1 234-282-9758`); both the hero button and the contact card hide if `whatsapp` is empty. `scholar` is the Google Scholar profile URL. |
 | Hobbies, hometown, gallery | `beyond` (the section hides until something is filled) |
 | Suggested chat questions and the “I don’t know” line | `chat` |
 

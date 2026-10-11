@@ -48,6 +48,11 @@ function renderProfile(profile) {
   if (githubLink && !isPlaceholder(profile.contact.github)) githubLink.href = profile.contact.github;
   const linkedinLink = document.querySelector("[data-linkedin-link]");
   if (linkedinLink && !isPlaceholder(profile.contact.linkedin)) linkedinLink.href = profile.contact.linkedin;
+  const whatsappLink = document.querySelector("[data-whatsapp-link]");
+  if (whatsappLink) {
+    if (isPlaceholder(profile.contact.whatsapp)) whatsappLink.hidden = true;
+    else whatsappLink.href = profile.contact.whatsapp;
+  }
   const scholarLink = document.querySelector("[data-scholar-link]");
   if (scholarLink) {
     if (isPlaceholder(profile.contact.scholar)) scholarLink.hidden = true;
@@ -387,6 +392,7 @@ function renderContact(profile) {
   if (!isPlaceholder(c.email)) root.append(contactCard("Email", c.email, `mailto:${c.email}`));
   if (!isPlaceholder(c.github)) root.append(contactCard("GitHub", c.githubLabel || c.github, c.github));
   if (!isPlaceholder(c.linkedin)) root.append(contactCard("LinkedIn", c.linkedinLabel || c.linkedin, c.linkedin));
+  if (!isPlaceholder(c.whatsapp)) root.append(contactCard("WhatsApp me", c.whatsappLabel || c.whatsapp, c.whatsapp));
   if (!isPlaceholder(c.scholar)) root.append(contactCard("Google Scholar", c.scholarLabel || "Google Scholar profile", c.scholar));
 
   const note = document.querySelector("[data-collaboration]");

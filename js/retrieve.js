@@ -151,6 +151,10 @@ function formatContact(profile) {
     `GitHub: ${c.github}`,
     `LinkedIn: ${c.linkedin}`
   ];
+  if (visitorText(c.whatsapp)) {
+    const number = visitorText(c.whatsappLabel);
+    lines.push(number ? `WhatsApp: ${number} (${c.whatsapp})` : `WhatsApp: ${c.whatsapp}`);
+  }
   if (visitorText(c.scholar)) lines.push(`Google Scholar: ${c.scholar}`);
   if (c.collaboration) lines.push(c.collaboration);
   const cv = visitorText(c.cv);
@@ -247,7 +251,7 @@ function isProjectListQuestion(q) {
 }
 
 function isContactQuestion(q) {
-  return /\b(contact|email|e-mail|reach|linkedin|resume|cv|hire|collaborat\w*)\b/.test(q);
+  return /\b(contact|email|e-mail|reach|linkedin|whatsapp|phone|text|resume|cv|hire|collaborat\w*)\b/.test(q);
 }
 
 function isResearchListQuestion(q) {
