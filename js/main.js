@@ -77,8 +77,10 @@ function renderProfile(profile) {
 
   renderSkills(profile.skills);
   renderResearch(profile.research);
+  renderEducation(profile.education);
   renderPublications(profile);
   renderExperience(profile.experience);
+  renderCertifications(profile.certifications);
   renderProjects(profile.projects);
   renderBeyond(profile.beyond);
   renderContact(profile);
@@ -106,19 +108,81 @@ function renderResearch(items) {
   const root = document.querySelector("[data-research]");
   if (!root) return;
   root.replaceChildren();
-  items.forEach((item, index) => {
+  for (const item of items) {
+    if (isPlaceholder(item.title)) continue;
+    const li = document.createElement("li");
+    li.textContent = item.title;
+    root.append(li);
+  }
+}
+
+function renderEducation(items) {
+  const root = document.querySelector("[data-education]");
+  const section = document.querySelector("#education");
+  if (!root) return;
+  root.replaceChildren();
+  const rows = (items || []).filter((item) => !isPlaceholder(item.degree) || !isPlaceholder(item.school));
+  if (section) section.hidden = rows.length === 0;
+  for (const item of rows) {
     const card = document.createElement("article");
-    card.className = "info-card";
-    const kicker = document.createElement("p");
-    kicker.className = "kicker";
-    kicker.textContent = String(index + 1).padStart(2, "0");
-    const title = document.createElement("h3");
-    title.textContent = item.title;
-    const summary = document.createElement("p");
-    summary.textContent = item.summary;
-    card.append(kicker, title, summary);
+    card.className = "edu";
+    if (!isPlaceholder(item.dates)) {
+      const dates = document.createElement("p");
+      dates.className = "job-dates";
+      dates.textContent = item.dates;
+      card.append(dates);
+    }
+    const degree = document.createElement("h3");
+    degree.textContent = item.degree;
+    const school = document.createElement("p");
+    school.className = "job-org";
+    school.textContent = [item.school, item.location].filter((part) => !isPlaceholder(part)).join(" · ");
+    card.append(degree, school);
+    const facts = [
+      !isPlaceholder(item.gpa) ? `CGPA ${item.gpa}` : "",
+      !isPlaceholder(item.standing) ? item.standing : "",
+      !isPlaceholder(item.advisor) ? `Advisor: ${item.advisor}` : "",
+      !isPlaceholder(item.thesis) ? `Thesis: ${item.thesis}` : ""
+    ].filter(Boolean);
+    if (facts.length) {
+      const list = document.createElement("ul");
+      list.className = "duties";
+      for (const fact of facts) {
+        const li = document.createElement("li");
+        li.textContent = fact;
+        list.append(li);
+      }
+      card.append(list);
+    }
     root.append(card);
-  });
+  }
+}
+
+function renderCertifications(groups) {
+  const root = document.querySelector("[data-certifications]");
+  const section = document.querySelector("[data-certifications-section]");
+  const nav = document.querySelector("[data-nav-certifications]");
+  if (!root) return;
+  root.replaceChildren();
+  const filled = (groups || []).filter((group) => (group.items || []).some((item) => !isPlaceholder(item)));
+  if (section) section.hidden = filled.length === 0;
+  if (nav) nav.hidden = filled.length === 0;
+  for (const group of filled) {
+    const block = document.createElement("div");
+    block.className = "cert-group";
+    const heading = document.createElement("h3");
+    heading.className = "subhead";
+    heading.textContent = group.group;
+    const list = document.createElement("ul");
+    list.className = "duties";
+    for (const item of group.items.filter((entry) => !isPlaceholder(entry))) {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.append(li);
+    }
+    block.append(heading, list);
+    root.append(block);
+  }
 }
 
 function renderKeywords(keywords) {
@@ -251,34 +315,36 @@ function renderExperience(jobs) {
   for (const job of jobs) {
     const item = document.createElement("article");
     item.className = "job";
+    if (!isPlaceholder(job.dates)) {
+      const dates = document.createElement("p");
+      dates.className = "job-dates";
+      dates.textContent = job.dates;
+      item.append(dates);
+    }
+    const body = document.createElement("div");
+    body.className = "job-body";
     const mark = document.createElement("div");
     mark.className = "job-mark";
     mark.textContent = job.mark || initials(job.org);
     mark.setAttribute("aria-hidden", "true");
-    const body = document.createElement("div");
-    const head = document.createElement("div");
-    head.className = "job-head";
-    const org = document.createElement("h3");
-    org.textContent = job.org;
-    head.append(org);
-    if (!isPlaceholder(job.dates)) {
-      const dates = document.createElement("p");
-      dates.className = "dates";
-      dates.textContent = job.dates;
-      head.append(dates);
-    }
-    const role = document.createElement("p");
-    role.className = "job-role";
+    const role = document.createElement("h3");
     role.textContent = job.role;
-    const focus = document.createElement("p");
-    focus.className = "job-focus";
-    focus.textContent = [job.focus, job.location].filter((part) => !isPlaceholder(part)).join(" · ");
-    const line = document.createElement("p");
-    line.textContent = !isPlaceholder(job.achievement) ? job.achievement : job.summary;
-    body.append(head, role);
-    if (focus.textContent) body.append(focus);
-    body.append(line);
-    item.append(mark, body);
+    const org = document.createElement("p");
+    org.className = "job-org";
+    org.textContent = [job.org, job.location].filter((part) => !isPlaceholder(part)).join(" · ");
+    body.append(mark, role, org);
+    const duties = (job.duties || []).filter((duty) => !isPlaceholder(duty));
+    if (duties.length) {
+      const list = document.createElement("ul");
+      list.className = "duties";
+      for (const duty of duties) {
+        const li = document.createElement("li");
+        li.textContent = duty;
+        list.append(li);
+      }
+      body.append(list);
+    }
+    item.append(body);
     root.append(item);
   }
 }

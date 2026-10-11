@@ -19,8 +19,9 @@
   },
   "about": {
     "paragraphs": [
-      "I am a PhD researcher working at the intersection of robotics, sensing, and machine learning for healthcare. Before graduate school I spent several years in industry as a field technical specialist and service engineer with Medtronic, Philips, and Siemens, supporting clinical imaging systems and the Hugo™ robotic-assisted surgery platform in hospital environments.",
-      "That background shapes my research: I focus on systems that are interpretable, reliable, and deployable in real clinical settings."
+      "He is a PhD candidate in Mechatronics, Robotics and Automation Engineering at Kent State University, and a graduate assistant there since August 2024. His advisor is Dr. Tao Shen.",
+      "Before that he was a field technical service specialist for Hugo Surgical Robotics at Medtronic (2021–August 2024), a field service engineer for CT and PET-CT at Philips Healthcare (2013–2021), an executive engineer for MRI and X-ray at Siemens Bangladesh Ltd. (2012–2013), and a part-time lecturer in EEE at Daffodil International University (2012–2013).",
+      "His research interests are robotics, imaging systems, quantum sensors, computer vision, human-machine interfaces, control systems, machine learning, deep learning, healthcare AI, explainable AI, biomedical signal analysis, data mining, and IoT."
     ],
     "match": [
       "who is he",
@@ -46,53 +47,122 @@
   },
   "research": [
     {
-      "id": "medical-ai",
-      "title": "Medical AI for imaging",
-      "summary": "Explainable deep learning for CT classification and differential diagnosis, built for radiology decision support.",
+      "id": "robotics",
+      "title": "Robotics",
+      "summary": "",
       "match": [
-        "medical ai",
-        "imaging",
-        "radiology",
-        "ct",
-        "deep learning",
-        "explainable",
-        "differential diagnosis"
+        "robotics",
+        "medical robotics"
       ]
     },
     {
-      "id": "medical-robotics",
-      "title": "Medical robotics",
-      "summary": "Deployment, uptime, and operation of surgical robotic systems in clinical environments.",
+      "id": "imaging",
+      "title": "Imaging systems",
+      "summary": "",
       "match": [
-        "medical robotics",
-        "surgical robot",
-        "robotics research",
-        "uptime"
+        "imaging",
+        "imaging system",
+        "medical imaging"
       ]
     },
     {
       "id": "quantum-sensing",
-      "title": "Quantum sensing",
-      "summary": "OPM and NV-center approaches to biomedical signal detection.",
+      "title": "Quantum sensors",
+      "summary": "",
       "match": [
         "quantum",
+        "quantum sensor",
         "quantum sensors",
-        "quantum sensing",
-        "opm",
-        "nv-center",
-        "nv center",
-        "biomedical signal"
+        "quantum sensing"
       ]
     },
     {
-      "id": "embedded-control",
-      "title": "Embedded control",
-      "summary": "Control workflows for intelligent medical devices.",
+      "id": "computer-vision",
+      "title": "Computer vision",
+      "summary": "",
       "match": [
-        "embedded",
-        "embedded control",
-        "control systems",
-        "medical devices"
+        "computer vision",
+        "vision"
+      ]
+    },
+    {
+      "id": "hmi",
+      "title": "Human-machine interface",
+      "summary": "",
+      "match": [
+        "human-machine",
+        "human machine",
+        "hmi"
+      ]
+    },
+    {
+      "id": "control",
+      "title": "Control systems",
+      "summary": "",
+      "match": [
+        "control system",
+        "control systems"
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine learning",
+      "summary": "",
+      "match": [
+        "machine learning"
+      ]
+    },
+    {
+      "id": "deep-learning",
+      "title": "Deep learning",
+      "summary": "",
+      "match": [
+        "deep learning"
+      ]
+    },
+    {
+      "id": "healthcare-ai",
+      "title": "Healthcare AI",
+      "summary": "",
+      "match": [
+        "healthcare ai",
+        "medical ai"
+      ]
+    },
+    {
+      "id": "xai",
+      "title": "Explainable AI",
+      "summary": "",
+      "match": [
+        "explainable",
+        "xai",
+        "explainable ai"
+      ]
+    },
+    {
+      "id": "biomedical-signal",
+      "title": "Biomedical signal analysis",
+      "summary": "",
+      "match": [
+        "biomedical signal",
+        "signal analysis"
+      ]
+    },
+    {
+      "id": "data-mining",
+      "title": "Data mining",
+      "summary": "",
+      "match": [
+        "data mining"
+      ]
+    },
+    {
+      "id": "iot",
+      "title": "IoT",
+      "summary": "",
+      "match": [
+        "iot",
+        "internet of things"
       ]
     }
   ],
@@ -239,80 +309,119 @@
     {
       "id": "kent-state",
       "org": "Kent State University",
-      "role": "PhD Candidate",
-      "focus": "Mechatronics, Robotics & Automation Engineering",
+      "role": "Graduate Assistant / PhD Candidate",
       "location": "Kent, Ohio",
-      "dates": "",
+      "dates": "Aug 2024 – Present",
       "current": true,
-      "summary": "He studies at Kent State University in Kent, Ohio, as a PhD candidate in Mechatronics, Robotics & Automation Engineering. The work is at the intersection of robotics, sensing, and machine learning for healthcare, aimed at systems that are interpretable, reliable, and deployable in real clinical settings.",
-      "match": [
-        "where does he study",
-        "where does nazmul study",
-        "where do you study",
-        "where is he studying",
-        "which university",
-        "what school",
-        "kent state",
-        "phd",
-        "ph.d",
-        "doctoral",
-        "graduate school",
-        "mechatronics"
-      ],
       "mark": "KS",
-      "achievement": "PhD research on robotics, sensing, and machine learning for healthcare."
+      "duties": [
+        "Research on medical robotics",
+        "Taking and assisting the Signal and Electronics lab"
+      ],
+      "summary": "Since August 2024 he has been a Graduate Assistant and PhD candidate at Kent State University in Kent, Ohio. He does research on medical robotics and takes and assists the Signal and Electronics lab. His PhD advisor is Dr. Tao Shen, and his CGPA is 4.00/4.00.",
+      "match": [
+        "kent state",
+        "graduate assistant",
+        "phd candidate",
+        "signal and electronics",
+        "where does he study",
+        "tao shen"
+      ]
     },
     {
       "id": "medtronic",
       "org": "Medtronic",
-      "role": "Field technical specialist and service engineer",
-      "focus": "Clinical imaging systems and the Hugo™ robotic-assisted surgery platform",
+      "role": "Field Technical Service Specialist, Hugo Surgical Robotics",
       "location": "",
-      "dates": "",
+      "dates": "2021 – Aug 2024",
       "current": false,
-      "summary": "At Medtronic he worked as a field technical specialist and service engineer before graduate school. His public profile describes several years supporting clinical imaging systems and the Hugo™ robotic-assisted surgery platform in hospital environments, together with Philips and Siemens. Hugo™ RAS is Medtronic's surgical robotics system. The profile does not split duties, sites, or dates by company.",
+      "mark": "MD",
+      "duties": [
+        "Field service support for Hugo robotic systems",
+        "Installation and commissioning",
+        "Uptime of Hugo robotic systems",
+        "Spare-parts logistics and inventory planning for the ISC region",
+        "Upkeep of the demo Hugo system",
+        "Customer visits and the post-sales network",
+        "FCA and quality guidelines from the business unit",
+        "Service-activity dashboard",
+        "O-arm and navigation systems"
+      ],
+      "summary": "From 2021 to August 2024 he was a Field Technical Service Specialist for Hugo Surgical Robotics at Medtronic. He gave field service support, handled installation and commissioning, system uptime, spare-parts logistics and inventory for the ISC region, the demo Hugo system, customer visits, FCA and quality guidelines, the service dashboard, and O-arm and navigation systems.",
       "match": [
         "medtronic",
-        "what did he work on at medtronic",
         "hugo",
-        "robotic-assisted surgery",
-        "robotic assisted surgery"
-      ],
-      "mark": "MD",
-      "achievement": "Supported clinical imaging systems and the Hugo™ robotic-assisted surgery platform in hospitals."
+        "hugo surgical",
+        "o-arm",
+        "o arm",
+        "field technical service specialist"
+      ]
     },
     {
       "id": "philips",
-      "org": "Philips",
-      "role": "Field technical specialist and service engineer",
-      "focus": "Clinical imaging systems",
+      "org": "Philips Healthcare",
+      "role": "Field Service Engineer, CT and PET CT",
       "location": "",
-      "dates": "",
+      "dates": "2013 – 2021",
       "current": false,
-      "summary": "At Philips he worked as a field technical specialist and service engineer before graduate school, supporting clinical imaging systems in hospital environments. The public profile groups this industry work with Medtronic and Siemens and does not list a separate Philips title, dates, or product line.",
+      "mark": "PH",
+      "duties": [
+        "Installation, preventive maintenance, upgrades, troubleshooting, and repair of CT/AMI systems",
+        "The same work for multimodality workstations (ISP, EBW)",
+        "Service records, reports, and compliance",
+        "Support for regional CP%, revenue, and AR targets"
+      ],
+      "summary": "From 2013 to 2021 he was a Field Service Engineer for CT and PET-CT at Philips Healthcare. He installed, maintained, upgraded, troubleshot, and repaired CT/AMI systems and multimodality workstations (ISP, EBW), kept service records and compliance, and supported regional CP%, revenue, and AR targets.",
       "match": [
         "philips",
-        "what did he work on at philips",
-        "phillips"
-      ],
-      "mark": "PH",
-      "achievement": "Supported clinical imaging systems in hospital environments."
+        "phillips",
+        "pet-ct",
+        "pet ct",
+        "ct scanner",
+        "field service engineer"
+      ]
     },
     {
       "id": "siemens",
-      "org": "Siemens",
-      "role": "Field technical specialist and service engineer",
-      "focus": "Clinical imaging systems",
+      "org": "Siemens Bangladesh Ltd.",
+      "role": "Executive Engineer, MRI and X-ray",
       "location": "",
-      "dates": "",
+      "dates": "2012 – 2013",
       "current": false,
-      "summary": "At Siemens he worked as a field technical specialist and service engineer before graduate school, supporting clinical imaging systems in hospital environments. The public profile groups this industry work with Medtronic and Philips and does not list a separate Siemens title, dates, or product line.",
+      "mark": "SI",
+      "duties": [
+        "Servicing, maintenance, and installation of MRI systems",
+        "Support for heliophos-D and orthophos (Sirona)"
+      ],
+      "summary": "From 2012 to 2013 he was an Executive Engineer for MRI and X-ray at Siemens Bangladesh Ltd. He serviced, maintained, and installed MRI systems and supported heliophos-D and orthophos (Sirona).",
       "match": [
         "siemens",
-        "what did he work on at siemens"
+        "mri",
+        "x-ray",
+        "xray",
+        "heliophos",
+        "orthophos",
+        "executive engineer"
+      ]
+    },
+    {
+      "id": "daffodil",
+      "org": "Daffodil International University",
+      "role": "Lecturer, EEE (Part-Time)",
+      "location": "",
+      "dates": "2012 – 2013",
+      "current": false,
+      "mark": "DI",
+      "duties": [
+        "Labs and classes in Digital Signal Processing, Electrical Circuits, and Electronic Circuit-1"
       ],
-      "mark": "SI",
-      "achievement": "Supported clinical imaging systems in hospital environments."
+      "summary": "From 2012 to 2013 he was a part-time Lecturer in EEE at Daffodil International University. He took labs and classes in Digital Signal Processing, Electrical Circuits, and Electronic Circuit-1.",
+      "match": [
+        "daffodil",
+        "lecturer",
+        "part-time",
+        "part time"
+      ]
     }
   ],
   "skills": [
@@ -321,43 +430,64 @@
       "items": [
         "Python",
         "C/C++",
+        "JavaScript",
+        "TypeScript",
         "MATLAB"
       ]
     },
     {
-      "group": "Machine learning",
+      "group": "AI / ML",
       "items": [
         "TensorFlow",
         "Keras",
         "scikit-learn",
         "NumPy",
-        "Pandas"
+        "Pandas",
+        "Vision Transformers",
+        "Transfer learning",
+        "Explainable AI (XAI)"
       ]
     },
     {
-      "group": "Embedded and tooling",
-      "items": [
-        "Arduino",
-        "Linux",
-        "Git"
-      ]
-    },
-    {
-      "group": "Clinical systems",
-      "items": [
-        "CT and PET-CT imaging",
-        "Hugo™ RAS robotics operations"
-      ]
-    },
-    {
-      "group": "AI-assisted development",
+      "group": "AI agents and LLM tools",
       "items": [
         "Claude",
         "Codex",
-        "Cursor",
         "Gemini",
+        "Grok Bot",
+        "Cursor",
         "OpenClaw",
-        "Ollama"
+        "Hermes Agents",
+        "Multi-agent orchestration",
+        "Local LLMs"
+      ]
+    },
+    {
+      "group": "Web and apps",
+      "items": [
+        "React",
+        "Vite",
+        "Socket.IO",
+        "Pixi.js",
+        "Node.js",
+        "GitHub Pages"
+      ]
+    },
+    {
+      "group": "Robotics and hardware",
+      "items": [
+        "Arduino",
+        "Proteus",
+        "Wearable and assistive device prototyping",
+        "Hugo robotic surgical system"
+      ]
+    },
+    {
+      "group": "Medical imaging systems",
+      "items": [
+        "CT",
+        "PET-CT",
+        "O-arm and navigation systems (Philips, Medtronic)"
       ]
     }
   ],
@@ -548,7 +678,7 @@
     "linkedinLabel": "linkedin.com/in/nazmul87/",
     "whatsapp": "https://wa.me/12342829758",
     "whatsappLabel": "+1 234-282-9758",
-    "cv": "",
+    "cv": "assets/cv.pdf",
     "collaboration": "Open to research collaborations, healthcare AI consulting, and robotics partnerships.",
     "match": [
       "how can i contact him",
@@ -571,14 +701,14 @@
     "scholarLabel": "Google Scholar profile"
   },
   "chat": {
-    "greeting": "Hi. Ask about Nazmul’s studies, research, industry work, projects, or how to reach him. Answers come from his public profile, in your browser.",
+    "greeting": "Hi. Ask about Nazmul’s studies, advisor, jobs, research, projects, or how to reach him. Answers come from his CV and public profile, in your browser.",
     "suggestions": [
       "Where does he study?",
       "What did he work on at Medtronic?",
       "What projects has he built?",
       "How can I contact him?"
     ],
-    "fallback": "I don’t have that in Nazmul’s public profile yet. I can answer where he studies, what he works on in research, what he did at Medtronic, Philips, and Siemens, which projects he has built, and how to contact him.",
+    "fallback": "I don’t have that in Nazmul’s CV or public profile yet. I can answer where he studies, his advisor and GPA, what he did at Medtronic, Philips, Siemens, and Daffodil, his skills, his papers, his projects, and how to contact him.",
     "llm": {
       "enabled": false,
       "endpoint": "",
@@ -591,5 +721,106 @@
     "hometown": "",
     "hobbies": [],
     "gallery": []
-  }
+  },
+  "education": [
+    {
+      "id": "kent-state-phd",
+      "school": "Kent State University",
+      "degree": "PhD in Mechatronics, Robotics and Automation Engineering",
+      "location": "Kent, Ohio, USA",
+      "dates": "Aug 2024 – Present",
+      "gpa": "4.00/4.00",
+      "standing": "",
+      "thesis": "",
+      "advisor": "Dr. Tao Shen",
+      "match": [
+        "kent state",
+        "phd",
+        "doctoral",
+        "tao shen",
+        "advisor",
+        "where does he study",
+        "mechatronics"
+      ]
+    },
+    {
+      "id": "brac-msc",
+      "school": "BRAC University",
+      "degree": "Master of Science in Computer Science and Engineering",
+      "location": "Dhaka, Bangladesh",
+      "dates": "Apr 2019 – Feb 2022",
+      "gpa": "4.00/4.00",
+      "standing": "Highest Distinction",
+      "thesis": "Demystify the Black-box Model of Automated Detection of Lung and Kidney Diseases from X-ray and CT Radiographs",
+      "advisor": "Dr. Md Golam Rabiul Alam",
+      "match": [
+        "brac",
+        "msc",
+        "master",
+        "masters",
+        "highest distinction",
+        "rabiul alam"
+      ]
+    },
+    {
+      "id": "cuet-bsc",
+      "school": "Chittagong University of Engineering and Technology (CUET)",
+      "degree": "Bachelor of Science in Electrical and Electronic Engineering",
+      "location": "Chittagong, Bangladesh",
+      "dates": "Apr 2007 – May 2011",
+      "gpa": "3.18/4.00",
+      "standing": "Merit position 46th",
+      "thesis": "Energy and Power Pricing Analysis of Bangladesh 2010–2011",
+      "advisor": "Dr. Shamsul Alam",
+      "match": [
+        "cuet",
+        "bachelor",
+        "bsc",
+        "eee",
+        "chittagong",
+        "shamsul"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "group": "Workera",
+      "items": [
+        "Machine Learning Researcher, issued March 2022"
+      ]
+    },
+    {
+      "group": "Coursera and DeepLearning.AI",
+      "items": [
+        "Convolutional Neural Networks",
+        "Convolutional Neural Networks in TensorFlow",
+        "Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",
+        "Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning",
+        "Structuring Machine Learning Projects",
+        "AI for Medical Diagnosis"
+      ]
+    },
+    {
+      "group": "Other courses",
+      "items": [
+        "Probability and Statistics: To p or not to p? — University of London",
+        "Python Data Structures — University of Michigan"
+      ]
+    },
+    {
+      "group": "Professional",
+      "items": [
+        "Hugo RAS (Robotic Assisted Surgery) training, North Haven, Connecticut, USA, 2 November 2021",
+        "Remote Technical Field Service Training for the Hugo RAS System, June 2021",
+        "LEAN Basic Training at Philips Healthcare, Mumbai, India, August 2018",
+        "PET-CT (Ingenuity TF PET-CT differences), Philips Healthcare Academy, Cleveland, USA, September 2017",
+        "PET-CT (NM Gemini TF Series PET Table GSU with TruFlight Select), Philips Healthcare Academy, Cleveland, USA, September 2017",
+        "IntelliSpace Portal R10 Server, Gurgaon Philips, India, August 2018",
+        "CT Scanner (Brilliance Air Family), Singapore Learning Centre, Philips Singapore, July 2015",
+        "CT Scanner (Brilliance/Ingenuity/iCT Gateway), Singapore Learning Centre, Philips Singapore, July 2015",
+        "CT Scanner (CT advance training MX-16), Professor Holst Centre, the Netherlands, August 2014",
+        "O-arm imaging technical training, Hyderabad, India, February 2022"
+      ]
+    }
+  ]
 }
