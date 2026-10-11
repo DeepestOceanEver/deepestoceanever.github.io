@@ -239,6 +239,10 @@ h3 { margin: 0; font-size: 1.45rem; }
 
 .button {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 0.7rem 1.05rem;
@@ -253,6 +257,16 @@ h3 { margin: 0; font-size: 1.45rem; }
 .button-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
 
 .button:hover, .button:focus-visible { transform: translateY(-1px); }
+
+.button-ghost:hover, .button-ghost:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+.icon {
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+  display: block;
+  fill: currentColor;
+}
 
 .portrait-wrap { position: relative; margin: 0; }
 
@@ -411,9 +425,22 @@ h3 { margin: 0; font-size: 1.45rem; }
 
 .contact-card span { color: var(--faint); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
 
+.contact-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .contact-card strong { font-size: 1.05rem; word-break: break-word; }
 
 .contact-card:hover, .contact-card:focus-visible { border-color: var(--accent); }
+
+.contact-card:hover span,
+.contact-card:focus-visible span,
+.contact-card:hover .icon,
+.contact-card:focus-visible .icon { color: var(--accent); }
 
 .collab { font-size: 1.15rem; max-width: 40rem; }
 
@@ -425,6 +452,7 @@ h3 { margin: 0; font-size: 1.45rem; }
 .site-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
   padding: 2rem 0 6rem;
@@ -433,7 +461,37 @@ h3 { margin: 0; font-size: 1.45rem; }
   margin-top: 1rem;
 }
 
+.footer-copy { display: grid; gap: 0.35rem; }
+
 .site-footer p { margin: 0; }
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  max-width: 100%;
+}
+
+.footer-social a {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--bg-elev);
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.footer-social .icon { width: 1.15rem; height: 1.15rem; }
 
 .ask-launch {
   position: fixed;

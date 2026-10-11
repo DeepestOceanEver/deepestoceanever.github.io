@@ -12,6 +12,8 @@ const cases = [
   ["What projects has he built?", ["multi-agent-system", "orca-draw", "passport-photo-studio", "northstar-reader"]],
   ["How can I contact him?", ["nazmul87@gmail.com", "github.com/nazmulislam-lab", "https://www.linkedin.com/in/nazmul87/", "https://wa.me/12342829758", "+1 234-282-9758", "https://nazmulislam-lab.github.io/assets/cv.pdf"]],
   ["What is his WhatsApp?", ["https://wa.me/12342829758", "+1 234-282-9758"]],
+  ["What's his X?", ["https://x.com/nzml087", "nzml087"]],
+  ["What is his Twitter?", ["https://x.com/nzml087", "@nzml087"]],
   ["What did he do at Philips?", ["field service engineer", "ct and pet", "2013", "2021"]],
   ["Tell me about Siemens", ["siemens bangladesh", "mri", "2012", "2013"]],
   ["What is his research on quantum sensors?", ["quantum sensors"]],

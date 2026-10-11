@@ -21,7 +21,7 @@ Change a fact there, commit, and push to `main`. Refresh the site. You do not ne
 | Jobs | `experience`. `dates` is the timeline label (for example `Aug 2024 – Present`). `duties` is the bullet list. Leave `dates` as `""` only when a range is unknown. |
 | Skills | `skills` |
 | Projects | `projects` (`image` is the card preview) |
-| Email, GitHub, LinkedIn, WhatsApp, Google Scholar, CV | `contact`. LinkedIn is `https://www.linkedin.com/in/nazmul87/`. WhatsApp is `contact.whatsapp` (`https://wa.me/12342829758`) and `contact.whatsappLabel` (`+1 234-282-9758`); both the hero button and the contact card hide if `whatsapp` is empty. `scholar` is the Google Scholar profile URL. `cv` is `assets/cv.pdf`. |
+| Email, GitHub, LinkedIn, X, WhatsApp, Google Scholar, CV | `contact`. LinkedIn is `https://www.linkedin.com/in/nazmul87/`. X is `contact.x` (`https://x.com/nzml087`) and `contact.xLabel` (`@nzml087`). WhatsApp is `contact.whatsapp` (`https://wa.me/12342829758`) and `contact.whatsappLabel` (`+1 234-282-9758`); a social button hides if its URL is empty. `scholar` is the Google Scholar profile URL. `cv` is `assets/cv.pdf`. |
 | Hobbies, hometown, gallery | `beyond` (the section hides until something is filled) |
 | Suggested chat questions and the “I don’t know” line | `chat` |
 
