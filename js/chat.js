@@ -51,24 +51,19 @@ export function initChat(profile) {
     input.value = "";
 
     const local = answerQuestion(profile, question);
+    const message = addMessage("assistant", local.text);
     const llm = profile.chat && profile.chat.llm;
-    if (llm && llm.enabled && llm.endpoint) {
-      const pending = addMessage("assistant", "Checking the optional assistant…");
-      askLlm(llm.endpoint, question, local.text, profile)
-        .then((remote) => {
-          pending.querySelector(".ask-msg-body").replaceChildren();
-          appendRichText(pending.querySelector(".ask-msg-body"), remote || local.text);
-        })
-        .catch(() => {
-          pending.querySelector(".ask-msg-body").replaceChildren();
-          appendRichText(
-            pending.querySelector(".ask-msg-body"),
-            `${local.text}\n\nThe optional assistant did not respond, so this answer is from the on-page profile.`
-          );
-        });
-      return;
-    }
-    addMessage("assistant", local.text);
+    if (!(llm && llm.enabled && llm.endpoint)) return;
+    askLlm(llm.endpoint, question, local.text, profile)
+      .then((remote) => {
+        if (!remote || remote === local.text) return;
+        const body = message.querySelector(".ask-msg-body");
+        body.replaceChildren();
+        appendRichText(body, remote);
+      })
+      .catch(() => {
+        /* Keep the local answer when the proxy is unset, blocked, or down. */
+      });
   }
 
   addMessage("assistant", profile.chat.greeting);

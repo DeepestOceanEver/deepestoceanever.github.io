@@ -12,21 +12,23 @@ Change a fact there, commit, and push to `main`. Refresh the site. You do not ne
 
 | What you want to change | Where |
 | --- | --- |
-| Name, title, location, short bio | `person` |
+| Name, title, location, short bio, hero line, keywords | `person` (`valueStatement`, `keywords`) |
 | Longer about text | `about.paragraphs` |
 | Research interests | `research` |
-| Papers | `publications` |
-| Jobs | `experience`. Leave `dates` as `""` until you know them; an empty date is hidden |
+| Papers | `publications` (the section hides when this and `talks` are both empty). A paper is `{ "title", "authors": [], "type": "journal" or "conference", "venue", "year", "date", "url" }`. The page bolds the name in `person.name` inside each author list. `url` should be the paper’s DOI link; leave it empty only if you cannot find one. |
+| Talks | `talks` (leave `[]` until you have a real talk) |
+| Jobs | `experience`. Leave `dates` as `""` to hide them. `achievement` is the one line on the timeline |
 | Skills | `skills` |
-| Projects | `projects` |
-| Email, GitHub, LinkedIn, CV | `contact` |
+| Projects | `projects` (`image` is the card preview) |
+| Email, GitHub, LinkedIn, WhatsApp, Google Scholar, CV | `contact`. LinkedIn is `https://www.linkedin.com/in/nazmul87/`. WhatsApp is `contact.whatsapp` (`https://wa.me/12342829758`) and `contact.whatsappLabel` (`+1 234-282-9758`); both the hero button and the contact card hide if `whatsapp` is empty. `scholar` is the Google Scholar profile URL. |
+| Hobbies, hometown, gallery | `beyond` (the section hides until something is filled) |
 | Suggested chat questions and the “I don’t know” line | `chat` |
 
 `match` arrays are extra phrases that help the chat recognize a question. You can add everyday wording there (“where does he study”, “hugo”, “passport”) without changing the JavaScript.
 
 ### Photo
 
-The portrait visitors see is the public GitHub profile photo, saved at `assets/portrait.jpg`. There is no caption. To use a different photo, replace that file or change `person.portrait`.
+The hero portrait is a fixed frame (`assets/portrait.jpg`, or whatever path you set on `person.portrait`). Drop a professional headshot in that same file and it will crop to fill the frame. The current image is the public GitHub profile photo. There is no caption.
 
 ### Fields that stay hidden until you fill them in
 
@@ -35,7 +37,10 @@ Empty strings are not shown on the page or in the chat. Do not put notes like �
 - **Dates.** Each job has `"dates": ""`. Set a real range, such as `"2021 – 2024"`, when you know it. Still unknown: Kent State, Medtronic, Philips, and Siemens.
 - **Kent State.** The public profile does not name an advisor or lab.
 - **Industry roles.** The public profile describes field technical specialist and service engineer work across Medtronic, Philips, and Siemens, supporting clinical imaging systems and the Hugo™ robotic-assisted surgery platform. It does not give a separate title, site, or product line for each company. Hugo™ RAS is Medtronic’s surgical robotics system.
-- **CV.** `contact.cv` is `""`, so no CV block is shown. Add a URL, or put a PDF at `assets/cv.pdf` and set `contact.cv` to `assets/cv.pdf`.
+- **CV.** `contact.cv` is `""`, so the Download CV button stays hidden in the hero and the contact section. Add a URL, or put a PDF at `assets/cv.pdf` and set `contact.cv` to `assets/cv.pdf`.
+- **Talks.** `talks` is `[]`. A talk is `{ "title": "", "event": "", "year": "", "url": "" }`. Empty `url` still shows the title. The talks list stays hidden until at least one title is set. No public talks were found in the profile or repos.
+- **Beyond work.** `beyond.intro`, `beyond.hometown`, `beyond.hobbies`, and `beyond.gallery` are empty, so the section is hidden. A gallery photo is `{ "src": "assets/gallery/photo.jpg", "alt": "Describe the photo" }`. Fill any of those fields to show the section.
+- **Link preview.** Shared links use `assets/og.jpg` (1200×630). Replace that file if you want a different preview image.
 
 ### Projects that were not on public GitHub
 
@@ -49,7 +54,12 @@ These names are in `projects` with `"available": false` because `nazmulislam-lab
 - x-business-ideas-scout
 - last-30-days-skill
 
-When you have a real URL and description, set `available` to `true` and fill `summary` and `url`.
+When you have a real URL and description, set `available` to `true`, fill `summary` and `url`, and add an `image` (a screenshot, a GIF, or a cover such as `assets/projects/nazmul-event-talks-app.svg`). Card previews already in the repo:
+
+- `orca-draw` and `passport-photo-studio` are screenshots of the live GitHub Pages demos.
+- `multi-agent-system` is a frame from `docs/demo.gif` in that repo.
+- `northstar-reader` is the screenshot from that repo’s README.
+- `Nazmul-event-talks-app` uses a generated cover because it has no public demo.
 
 Public repositories that are linked today:
 
@@ -91,40 +101,23 @@ No key is shipped to visitors. `chat.llm.enabled` is `false` and `chat.llm.endpo
 
 ## Optional AI backend
 
-Leave the chat as it is if you do not want a model in the loop. To add one later, put a Cloudflare Worker in front of the model so the key stays on the server.
+The chat answers in the browser by default. No key is required, and nothing is called until you opt in.
 
-Example worker: [`workers/ask-nazmul.js`](workers/ask-nazmul.js). Example config: [`workers/wrangler.toml.example`](workers/wrangler.toml.example).
+To put a model behind it, deploy [`workers/ask-nazmul.js`](workers/ask-nazmul.js) on the Cloudflare Workers free tier. The worker calls an OpenAI-compatible chat API, grounds the model on the profile JSON the page sends, allows `https://nazmulislam-lab.github.io` (plus localhost for a local preview), and allows 10 questions per minute per IP. The API key stays in a Worker secret.
 
-```bash
-cd workers
-cp wrangler.toml.example wrangler.toml
-npx wrangler secret put LLM_API_KEY
-npx wrangler deploy
-```
+1. Install Wrangler if you do not have it: `npm install -g wrangler` (or use `npx wrangler`).
+2. Log in: `npx wrangler login`.
+3. From the `workers/` folder, copy the example config: `cp wrangler.toml.example wrangler.toml`.
+4. Store the key (this does not go in git): `npx wrangler secret put LLM_API_KEY`.
+5. Optional: in `wrangler.toml`, change `LLM_BASE_URL`, `LLM_MODEL`, or `ALLOWED_ORIGIN`. The default model URL is `https://api.openai.com/v1` and the default model is `gpt-4o-mini`.
+6. Deploy: `npx wrangler deploy`.
+7. Copy the `https://….workers.dev` URL from the deploy output.
+8. In `data/profile.json`, set `chat.llm.enabled` to `true` and `chat.llm.endpoint` to that URL.
+9. Commit and push `data/profile.json` only. Do not commit `wrangler.toml` if it has account-specific values, and never put the API key in the profile file.
 
-The worker accepts `POST` JSON:
+The page shows the local answer immediately. If the endpoint is empty, `enabled` is false, the worker returns an error, the rate limit trips, or the request times out, that local answer stays. Set `enabled` back to `false` to stop calling the worker.
 
-```json
-{ "question": "Where does he study?", "context": "local answer", "profile": {} }
-```
-
-It returns `{ "answer": "..." }`. It calls an OpenAI-compatible `POST /chat/completions` endpoint using:
-
-- `LLM_API_KEY` (secret)
-- `LLM_BASE_URL` (default `https://api.openai.com/v1`)
-- `LLM_MODEL` (default `gpt-4o-mini`)
-- `ALLOWED_ORIGIN` (default `https://nazmulislam-lab.github.io`; localhost is also allowed)
-
-Then in `data/profile.json`:
-
-```json
-"llm": {
-  "enabled": true,
-  "endpoint": "https://ask-nazmul.<your-subdomain>.workers.dev"
-}
-```
-
-If the worker fails or times out, the page still shows the local answer. Set `enabled` back to `false` to turn the model off. Do not commit `wrangler.toml` if you add account-specific values, and do not put the API key in `profile.json`.
+The worker accepts `POST` JSON `{ "question", "context", "profile" }` and returns `{ "answer" }`.
 
 ## GitHub Pages
 

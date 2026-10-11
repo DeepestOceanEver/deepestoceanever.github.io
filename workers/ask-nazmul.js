@@ -16,6 +16,9 @@
  */
 
 const DEFAULT_ORIGIN = "https://nazmulislam-lab.github.io";
+const WINDOW_MS = 60_000;
+const PER_IP_LIMIT = 10;
+const hits = new Map();
 
 export default {
   async fetch(request, env) {
@@ -33,6 +36,11 @@ export default {
 
     if (!isAllowedOrigin(origin, allowed)) {
       return json({ error: "Origin not allowed." }, 403, cors);
+    }
+
+    const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+    if (!allowRequest(ip)) {
+      return json({ error: "Too many questions. Try again in a minute." }, 429, cors);
     }
 
     if (!env.LLM_API_KEY) {
@@ -91,9 +99,27 @@ export default {
   }
 };
 
+function allowRequest(ip) {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((stamp) => now - stamp < WINDOW_MS);
+  if (recent.length >= PER_IP_LIMIT) {
+    hits.set(ip, recent);
+    return false;
+  }
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 1000) {
+    for (const [key, stamps] of hits) {
+      if (stamps.every((stamp) => now - stamp >= WINDOW_MS)) hits.delete(key);
+    }
+  }
+  return true;
+}
+
 function isAllowedOrigin(origin, allowed) {
   if (!origin) return false;
   if (origin === allowed) return true;
+  // Local preview only. Production pages are limited to ALLOWED_ORIGIN.
   if (origin.startsWith("http://localhost:") || origin.startsWith("http://127.0.0.1:")) return true;
   return false;
 }
