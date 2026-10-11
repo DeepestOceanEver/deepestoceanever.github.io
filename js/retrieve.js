@@ -175,6 +175,10 @@ function formatContact(profile) {
     `GitHub: ${c.github}`,
     `LinkedIn: ${c.linkedin}`
   ];
+  if (visitorText(c.x)) {
+    const handle = visitorText(c.xLabel);
+    lines.push(handle ? `X (Twitter): ${handle} (${c.x})` : `X (Twitter): ${c.x}`);
+  }
   if (visitorText(c.whatsapp)) {
     const number = visitorText(c.whatsappLabel);
     lines.push(number ? `WhatsApp: ${number} (${c.whatsapp})` : `WhatsApp: ${c.whatsapp}`);
@@ -317,6 +321,8 @@ function isProjectListQuestion(q) {
 }
 
 function isContactQuestion(q) {
+  if (/\b(twitter|x\.com|nzml087)\b/.test(q)) return true;
+  if (/\b(his|your|the|on|whats)\s+x\b/.test(q)) return true;
   return /\b(contact|email|e-mail|reach|linkedin|whatsapp|phone|text|resume|cv|hire|collaborat\w*)\b/.test(q);
 }
 

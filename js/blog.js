@@ -1,3 +1,5 @@
+import { paintIcons, renderFooterSocial } from "./icons.js";
+
 const WORDS_PER_MINUTE = 200;
 
 export async function loadPosts(manifestUrl) {
@@ -187,6 +189,17 @@ function initBlogPage() {
   }
   const year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
+  paintIcons(document);
+  fetch("../data/profile.json", { cache: "no-cache" })
+    .then((response) => (response.ok ? response.json() : null))
+    .then((profile) => {
+      if (!profile) return;
+      renderFooterSocial(document.querySelector("[data-footer-social]"), profile, {
+        rssHref: "../feed.xml",
+        assetPrefix: "../"
+      });
+    })
+    .catch(() => {});
 
   if (kind === "index") {
     const root = document.querySelector("[data-blog-list]");

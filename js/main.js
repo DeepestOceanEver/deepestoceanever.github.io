@@ -1,5 +1,6 @@
 import { initChat } from "./chat.js";
 import { loadPosts, postHref, renderPostCards } from "./blog.js";
+import { iconSvg, paintIcons, renderFooterSocial } from "./icons.js";
 
 const THEME_KEY = "nazmul-theme";
 
@@ -49,6 +50,11 @@ function renderProfile(profile) {
   if (githubLink && !isPlaceholder(profile.contact.github)) githubLink.href = profile.contact.github;
   const linkedinLink = document.querySelector("[data-linkedin-link]");
   if (linkedinLink && !isPlaceholder(profile.contact.linkedin)) linkedinLink.href = profile.contact.linkedin;
+  const xLink = document.querySelector("[data-x-link]");
+  if (xLink) {
+    if (isPlaceholder(profile.contact.x)) xLink.hidden = true;
+    else xLink.href = profile.contact.x;
+  }
   const whatsappLink = document.querySelector("[data-whatsapp-link]");
   if (whatsappLink) {
     if (isPlaceholder(profile.contact.whatsapp)) whatsappLink.hidden = true;
@@ -88,6 +94,8 @@ function renderProfile(profile) {
   renderLatestPosts();
   renderContact(profile);
   renderStructuredData(profile);
+  renderFooterSocial(document.querySelector("[data-footer-social]"), profile, { rssHref: "feed.xml" });
+  paintIcons(document);
   initReveal();
 }
 
@@ -471,11 +479,12 @@ function renderCollaborate(profile) {
   actions.replaceChildren();
   const c = profile.contact || {};
   if (!isPlaceholder(c.email)) {
-    actions.append(textLink(`mailto:${c.email}?subject=${encodeURIComponent("Collaboration")}`, "Email", "button button-primary"));
+    actions.append(textLink(`mailto:${c.email}?subject=${encodeURIComponent("Collaboration")}`, "Email", "button button-primary", "email"));
   }
-  if (!isPlaceholder(c.linkedin)) actions.append(textLink(c.linkedin, "LinkedIn", "button button-ghost"));
-  if (!isPlaceholder(c.whatsapp)) actions.append(textLink(c.whatsapp, "WhatsApp", "button button-ghost"));
-  if (!isPlaceholder(c.scholar)) actions.append(textLink(c.scholar, "Google Scholar", "button button-ghost"));
+  if (!isPlaceholder(c.linkedin)) actions.append(textLink(c.linkedin, "LinkedIn", "button button-ghost", "linkedin"));
+  if (!isPlaceholder(c.x)) actions.append(textLink(c.x, "X", "button button-ghost", "x"));
+  if (!isPlaceholder(c.whatsapp)) actions.append(textLink(c.whatsapp, "WhatsApp", "button button-ghost", "whatsapp"));
+  if (!isPlaceholder(c.scholar)) actions.append(textLink(c.scholar, "Google Scholar", "button button-ghost", "scholar"));
 }
 
 function renderLatestPosts() {
@@ -500,11 +509,12 @@ function renderContact(profile) {
   const c = profile.contact;
   root.replaceChildren();
 
-  if (!isPlaceholder(c.email)) root.append(contactCard("Email", c.email, `mailto:${c.email}`));
-  if (!isPlaceholder(c.github)) root.append(contactCard("GitHub", c.githubLabel || c.github, c.github));
-  if (!isPlaceholder(c.linkedin)) root.append(contactCard("LinkedIn", c.linkedinLabel || c.linkedin, c.linkedin));
-  if (!isPlaceholder(c.whatsapp)) root.append(contactCard("WhatsApp me", c.whatsappLabel || c.whatsapp, c.whatsapp));
-  if (!isPlaceholder(c.scholar)) root.append(contactCard("Google Scholar", c.scholarLabel || "Google Scholar profile", c.scholar));
+  if (!isPlaceholder(c.email)) root.append(contactCard("Email", c.email, `mailto:${c.email}`, "email"));
+  if (!isPlaceholder(c.github)) root.append(contactCard("GitHub", c.githubLabel || c.github, c.github, "github"));
+  if (!isPlaceholder(c.linkedin)) root.append(contactCard("LinkedIn", c.linkedinLabel || c.linkedin, c.linkedin, "linkedin"));
+  if (!isPlaceholder(c.x)) root.append(contactCard("X", c.xLabel || c.x, c.x, "x"));
+  if (!isPlaceholder(c.whatsapp)) root.append(contactCard("WhatsApp me", c.whatsappLabel || c.whatsapp, c.whatsapp, "whatsapp"));
+  if (!isPlaceholder(c.scholar)) root.append(contactCard("Google Scholar", c.scholarLabel || "Google Scholar profile", c.scholar, "scholar"));
 
   const note = document.querySelector("[data-collaboration]");
   if (note) note.textContent = c.collaboration;
@@ -514,7 +524,7 @@ function renderContact(profile) {
     cv.replaceChildren();
     if (!isPlaceholder(c.cv)) {
       cv.hidden = false;
-      cv.append(textLink(c.cv, "Download CV", "button button-primary"));
+      cv.append(textLink(c.cv, "Download CV", "button button-primary", "cv"));
     } else {
       cv.hidden = true;
     }
@@ -537,7 +547,7 @@ function renderStructuredData(profile) {
   const node = document.querySelector("#person-ld");
   if (!node) return;
   const person = profile.person;
-  const sameAs = [profile.contact.github, profile.contact.linkedin, profile.contact.scholar].filter((url) => !isPlaceholder(url));
+  const sameAs = [profile.contact.github, profile.contact.linkedin, profile.contact.x, profile.contact.scholar].filter((url) => !isPlaceholder(url));
   node.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
@@ -583,7 +593,7 @@ function isPlaceholder(value) {
   return !text || /\bTODO\b/i.test(text);
 }
 
-function contactCard(label, value, href) {
+function contactCard(label, value, href, iconName) {
   const link = document.createElement("a");
   link.className = "contact-card";
   link.href = href;
@@ -592,14 +602,19 @@ function contactCard(label, value, href) {
     link.rel = "noopener noreferrer";
   }
   const kicker = document.createElement("span");
-  kicker.textContent = label;
+  kicker.className = "contact-kicker";
+  const glyph = iconSvg(iconName);
+  if (glyph) kicker.append(glyph);
+  const labelText = document.createElement("span");
+  labelText.textContent = label;
+  kicker.append(labelText);
   const text = document.createElement("strong");
   text.textContent = value;
   link.append(kicker, text);
   return link;
 }
 
-function textLink(href, label, className) {
+function textLink(href, label, className, iconName) {
   const link = document.createElement("a");
   link.href = href;
   if (className) link.className = className;
@@ -608,7 +623,15 @@ function textLink(href, label, className) {
     link.rel = "noopener noreferrer";
   }
   if (className && className.includes("button") && href.startsWith("assets/")) link.setAttribute("download", "");
-  link.textContent = label;
+  if (iconName === "x") {
+    link.title = "X (@nzml087)";
+    link.setAttribute("aria-label", "X (@nzml087)");
+  }
+  const glyph = iconSvg(iconName);
+  if (glyph) link.append(glyph);
+  const span = document.createElement("span");
+  span.textContent = label;
+  link.append(span);
   return link;
 }
 
