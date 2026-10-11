@@ -15,12 +15,12 @@ Change a fact there, commit, and push to `main`. Refresh the site. You do not ne
 | Name, title, location, short bio, hero line, keywords | `person` (`valueStatement`, `keywords`) |
 | Longer about text | `about.paragraphs` |
 | Research interests | `research` |
-| Papers | `publications` (the section hides when this and `talks` are both empty) |
+| Papers | `publications` (the section hides when this and `talks` are both empty). A paper is `{ "title", "authors": [], "type": "journal" or "conference", "venue", "year", "date", "url" }`. The page bolds the name in `person.name` inside each author list. `url` should be the paper’s DOI link; leave it empty only if you cannot find one. |
 | Talks | `talks` (leave `[]` until you have a real talk) |
 | Jobs | `experience`. Leave `dates` as `""` to hide them. `achievement` is the one line on the timeline |
 | Skills | `skills` |
 | Projects | `projects` (`image` is the card preview) |
-| Email, GitHub, LinkedIn, CV | `contact` |
+| Email, GitHub, LinkedIn, Google Scholar, CV | `contact` (`scholar` is the Google Scholar profile URL) |
 | Hobbies, hometown, gallery | `beyond` (the section hides until something is filled) |
 | Suggested chat questions and the “I don’t know” line | `chat` |
 

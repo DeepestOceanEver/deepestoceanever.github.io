@@ -48,6 +48,11 @@ function renderProfile(profile) {
   if (githubLink && !isPlaceholder(profile.contact.github)) githubLink.href = profile.contact.github;
   const linkedinLink = document.querySelector("[data-linkedin-link]");
   if (linkedinLink && !isPlaceholder(profile.contact.linkedin)) linkedinLink.href = profile.contact.linkedin;
+  const scholarLink = document.querySelector("[data-scholar-link]");
+  if (scholarLink) {
+    if (isPlaceholder(profile.contact.scholar)) scholarLink.hidden = true;
+    else scholarLink.href = profile.contact.scholar;
+  }
   wireCvLink(profile.contact.cv);
 
   const portrait = document.querySelector("[data-portrait]");
@@ -148,11 +153,31 @@ function renderPublications(profile) {
   const nav = document.querySelector("[data-nav-publications]");
   if (paperList) {
     paperList.replaceChildren();
-    for (const paper of papers) paperList.append(entryItem(paper));
+    const groups = [
+      ["Journal", papers.filter((paper) => paper.type === "journal")],
+      ["Conference", papers.filter((paper) => paper.type === "conference")],
+      ["Other", papers.filter((paper) => paper.type !== "journal" && paper.type !== "conference")]
+    ].filter(([, items]) => items.length);
+    const named = profile.person && profile.person.name;
+    for (const [label, items] of groups) {
+      const block = document.createElement("div");
+      block.className = "paper-group";
+      if (groups.length > 1) {
+        const heading = document.createElement("h3");
+        heading.className = "subhead";
+        heading.textContent = label;
+        block.append(heading);
+      }
+      const list = document.createElement("ol");
+      list.className = "papers";
+      for (const paper of items) list.append(entryItem(paper, named));
+      block.append(list);
+      paperList.append(block);
+    }
   }
   if (talkList) {
     talkList.replaceChildren();
-    for (const talk of talks) talkList.append(entryItem(talk));
+    for (const talk of talks) talkList.append(entryItem(talk, profile.person && profile.person.name));
   }
   if (paperBlock) paperBlock.hidden = papers.length === 0;
   if (talkBlock) talkBlock.hidden = talks.length === 0;
@@ -170,7 +195,7 @@ function renderPublications(profile) {
   if (nav) nav.hidden = !visible;
 }
 
-function entryItem(entry) {
+function entryItem(entry, selfName) {
   const item = document.createElement("li");
   const label = entry.title;
   if (!isPlaceholder(entry.url)) {
@@ -185,7 +210,9 @@ function entryItem(entry) {
     title.textContent = label;
     item.append(title);
   }
-  const meta = [entry.venue, entry.event, entry.year].filter((part) => !isPlaceholder(part)).join(" · ");
+  const authors = (entry.authors || []).filter((name) => !isPlaceholder(name));
+  if (authors.length) item.append(authorLine(authors, selfName));
+  const meta = [entry.venue, entry.event, entry.date || entry.year].filter((part) => !isPlaceholder(part)).join(" · ");
   if (meta) {
     const venue = document.createElement("span");
     venue.className = "venue";
@@ -193,6 +220,23 @@ function entryItem(entry) {
     item.append(venue);
   }
   return item;
+}
+
+function authorLine(authors, selfName) {
+  const line = document.createElement("p");
+  line.className = "authors";
+  authors.forEach((name, index) => {
+    if (index) line.append(document.createTextNode(", "));
+    if (selfName && name.trim() === selfName.trim()) {
+      const mark = document.createElement("strong");
+      mark.className = "self";
+      mark.textContent = name;
+      line.append(mark);
+    } else {
+      line.append(document.createTextNode(name));
+    }
+  });
+  return line;
 }
 
 function renderExperience(jobs) {
@@ -343,6 +387,7 @@ function renderContact(profile) {
   if (!isPlaceholder(c.email)) root.append(contactCard("Email", c.email, `mailto:${c.email}`));
   if (!isPlaceholder(c.github)) root.append(contactCard("GitHub", c.githubLabel || c.github, c.github));
   if (!isPlaceholder(c.linkedin)) root.append(contactCard("LinkedIn", c.linkedinLabel || c.linkedin, c.linkedin));
+  if (!isPlaceholder(c.scholar)) root.append(contactCard("Google Scholar", c.scholarLabel || "Google Scholar profile", c.scholar));
 
   const note = document.querySelector("[data-collaboration]");
   if (note) note.textContent = c.collaboration;
@@ -375,7 +420,7 @@ function renderStructuredData(profile) {
   const node = document.querySelector("#person-ld");
   if (!node) return;
   const person = profile.person;
-  const sameAs = [profile.contact.github, profile.contact.linkedin].filter((url) => !isPlaceholder(url));
+  const sameAs = [profile.contact.github, profile.contact.linkedin, profile.contact.scholar].filter((url) => !isPlaceholder(url));
   node.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",

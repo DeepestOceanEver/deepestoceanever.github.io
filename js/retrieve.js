@@ -32,6 +32,10 @@ export function answerQuestion(profile, question) {
   if (isResearchListQuestion(q)) {
     return { text: formatResearch(profile), confident: true };
   }
+  const namedPaper = matchPublication(profile, q);
+  if (namedPaper) {
+    return { text: formatOnePublication(namedPaper), confident: true };
+  }
   if (isPublicationQuestion(q)) {
     return { text: formatPublications(profile), confident: true };
   }
@@ -147,6 +151,7 @@ function formatContact(profile) {
     `GitHub: ${c.github}`,
     `LinkedIn: ${c.linkedin}`
   ];
+  if (visitorText(c.scholar)) lines.push(`Google Scholar: ${c.scholar}`);
   if (c.collaboration) lines.push(c.collaboration);
   const cv = visitorText(c.cv);
   if (cv) lines.push(`CV: ${cv}`);
@@ -168,13 +173,42 @@ function formatResearch(profile) {
 }
 
 function formatPublications(profile) {
-  const lines = ["Selected publications from his public profile:", ""];
-  profile.publications.forEach((paper, index) => {
-    const venue = paper.venue ? ` — ${paper.venue}` : "";
-    lines.push(`${index + 1}. ${paper.title}${venue}`);
-    if (paper.url) lines.push(`   ${paper.url}`);
+  const lines = ["Publications from his Google Scholar profile:", ""];
+  const scholar = visitorText(profile.contact && profile.contact.scholar);
+  if (scholar) lines.push(scholar, "");
+  (profile.publications || []).forEach((paper, index) => {
+    lines.push(`${index + 1}. ${formatOnePublication(paper)}`);
+    lines.push("");
   });
+  return lines.join("\n").trim();
+}
+
+function formatOnePublication(paper) {
+  const lines = [paper.title];
+  const authors = (paper.authors || []).filter((name) => visitorText(name));
+  if (authors.length) lines.push(`Authors: ${authors.join(", ")}`);
+  const meta = [paper.venue, paper.date || paper.year].filter((part) => visitorText(part)).join(", ");
+  if (meta) lines.push(meta);
+  if (visitorText(paper.url)) lines.push(paper.url);
   return lines.join("\n");
+}
+
+function matchPublication(profile, q) {
+  let best = null;
+  for (const paper of profile.publications || []) {
+    const terms = [paper.title, ...(paper.match || [])];
+    let total = 0;
+    let longest = 0;
+    for (const term of terms) {
+      if (!term || !hasPhrase(q, term)) continue;
+      const len = normalize(term).length;
+      total += len;
+      if (len > longest) longest = len;
+    }
+    if (longest < 6) continue;
+    if (!best || total > best.total) best = { paper, total };
+  }
+  return best ? best.paper : null;
 }
 
 function formatSkills(profile) {

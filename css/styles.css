@@ -288,6 +288,17 @@ h3 { margin: 0; font-size: 1.45rem; }
 
 .section-head { margin-bottom: 1.4rem; max-width: 40rem; }
 
+.section-head-split {
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.section-head-split h2 { max-width: 36rem; }
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -335,6 +346,20 @@ h3 { margin: 0; font-size: 1.45rem; }
 }
 
 .papers a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+
+.paper-group + .paper-group { margin-top: 1.6rem; }
+
+.authors { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.paper-group:first-child .subhead { margin-top: 0; }
+
+.authors .self {
+  color: var(--ink);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 0.28em;
+  padding: 0 0.22em;
+}
 
 .venue { color: var(--muted); font-size: 0.95rem; }
 

@@ -98,29 +98,141 @@
   ],
   "publications": [
     {
-      "title": "Demystify the Black-box of Deep Learning Models for COVID-19 Detection from Chest CT Radiographs",
-      "venue": "",
-      "url": "https://scholar.google.com/scholar?q=Demystify+the+Black-box+of+Deep+Learning+Models+for+COVID-19+Detection+from+Chest+CT+Radiographs"
+      "title": "Interpretable Differential Diagnosis of Non-COVID Viral Pneumonia, Lung Opacity and COVID-19 Using Tuned Transfer Learning and Explainable AI",
+      "authors": [
+        "Md Nazmul Islam",
+        "Md Golam Rabiul Alam",
+        "Tasnim Sakib Apon",
+        "Md Zia Uddin",
+        "Nasser Allheeib",
+        "Alaa Menshawi",
+        "Mohammad Mehedi Hassan"
+      ],
+      "type": "journal",
+      "venue": "Healthcare (MDPI), 11(3):410",
+      "year": "2023",
+      "date": "Jan 31, 2023",
+      "url": "https://doi.org/10.3390/healthcare11030410",
+      "match": [
+        "non-covid",
+        "viral pneumonia",
+        "lung opacity",
+        "healthcare",
+        "mdpi",
+        "explainable ai",
+        "transfer learning"
+      ]
     },
     {
       "title": "Vision Transformer and Explainable Transfer Learning Models for Auto Detection of Kidney Cyst, Stone and Tumor from CT-Radiography",
-      "venue": "Scientific Reports, 2022",
-      "url": "https://doi.org/10.1038/s41598-022-15634-4"
+      "authors": [
+        "Md Nazmul Islam",
+        "Mehedi Hasan",
+        "Md Kabir Hossain",
+        "Md Golam Rabiul Alam",
+        "Md Zia Uddin",
+        "Ahmet Soylu"
+      ],
+      "type": "journal",
+      "venue": "Scientific Reports, 12(1):11440",
+      "year": "2022",
+      "date": "Jul 6, 2022",
+      "url": "https://doi.org/10.1038/s41598-022-15634-4",
+      "match": [
+        "kidney",
+        "kidney cyst",
+        "kidney stone",
+        "kidney tumor",
+        "vision transformer",
+        "ct-radiography",
+        "scientific reports"
+      ]
     },
     {
-      "title": "Interpretable Differential Diagnosis of Non-COVID Viral Pneumonia, Lung Opacity and COVID-19 Using Tuned Transfer Learning and Explainable AI",
-      "venue": "Healthcare (MDPI), 2023",
-      "url": "https://doi.org/10.3390/healthcare11030410"
+      "title": "A Universal Joint-Adaptive Orthosis with Velocity Modulated Resistance",
+      "authors": [
+        "Kylie Schwartz",
+        "Md Nazmul Islam",
+        "Jarif Ahmed",
+        "Tao Shen"
+      ],
+      "type": "conference",
+      "venue": "ASME Frontiers in Biomedical Devices, V001T04A005",
+      "year": "2026",
+      "date": "Apr 30, 2026",
+      "url": "https://doi.org/10.1115/DMD2026-1041",
+      "match": [
+        "velocity modulated",
+        "joint-adaptive",
+        "joint adaptive orthosis",
+        "dmd2026"
+      ]
+    },
+    {
+      "title": "Universal Joint Orthosis (UJO): Assistive and Resistive Movement Device for Astronauts and Medical Rehabilitation",
+      "authors": [
+        "Izel Tuncer",
+        "Md Nazmul Islam",
+        "Renhao Jin",
+        "Tao Shen"
+      ],
+      "type": "conference",
+      "venue": "ASME Frontiers in Biomedical Devices, V001T07A003",
+      "year": "2025",
+      "date": "Apr 30, 2025",
+      "url": "https://doi.org/10.1115/DMD2025-1028",
+      "match": [
+        "universal joint orthosis",
+        "ujo",
+        "astronauts",
+        "assistive and resistive",
+        "dmd2025-1028"
+      ]
     },
     {
       "title": "Development of a Wearable Device for Assisting Diaphragmatic Breathing",
-      "venue": "",
-      "url": "https://scholar.google.com/scholar?q=Development+of+a+Wearable+Device+for+Assisting+Diaphragmatic+Breathing"
+      "authors": [
+        "Anand",
+        "Md Nazmul Islam",
+        "Renhao Jin",
+        "Qiang Guan",
+        "Yan Sun",
+        "Gengqing Song",
+        "Tao Shen"
+      ],
+      "type": "conference",
+      "venue": "ASME Frontiers in Biomedical Devices, V001T04A005",
+      "year": "2025",
+      "date": "Apr 30, 2025",
+      "url": "https://doi.org/10.1115/DMD2025-1081",
+      "match": [
+        "diaphragmatic",
+        "diaphragmatic breathing",
+        "wearable device",
+        "dmd2025-1081"
+      ]
     },
     {
-      "title": "Universal Joint Orthosis: Assistive and Resistive Movement Device for Astronauts and Medical Rehabilitation",
-      "venue": "",
-      "url": "https://scholar.google.com/scholar?q=Universal+Joint+Orthosis+Assistive+and+Resistive+Movement+Device+for+Astronauts+and+Medical+Rehabilitation"
+      "title": "Demystify the Black-box of Deep Learning Models for COVID-19 Detection from Chest CT Radiographs",
+      "authors": [
+        "Md Nazmul Islam",
+        "Mehedi Hasan",
+        "Abdul Kadar Muhammad Masum",
+        "Md Zia Uddin",
+        "Md Golam Rabiul Alam"
+      ],
+      "type": "conference",
+      "venue": "24th ICCIT, IEEE, pp. 1–6",
+      "year": "2021",
+      "date": "Dec 18, 2021",
+      "url": "https://doi.org/10.1109/ICCIT54785.2021.9689784",
+      "match": [
+        "black-box",
+        "black box",
+        "iccit",
+        "chest ct",
+        "covid-19 detection"
+      ]
     }
   ],
   "experience": [
@@ -446,8 +558,12 @@
       "linkedin",
       "github",
       "reach him",
-      "get in touch"
-    ]
+      "get in touch",
+      "scholar",
+      "google scholar"
+    ],
+    "scholar": "https://scholar.google.com/citations?user=L6BZ7JoAAAAJ&hl=en",
+    "scholarLabel": "Google Scholar profile"
   },
   "chat": {
     "greeting": "Hi. Ask about Nazmul’s studies, research, industry work, projects, or how to reach him. Answers come from his public profile, in your browser.",
