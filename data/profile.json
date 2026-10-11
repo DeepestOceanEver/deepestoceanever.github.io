@@ -9,7 +9,13 @@
     "location": "Kent, Ohio",
     "bio": "PhD Candidate @ Kent State | Robotics • Quantum Sensors • AI | Ex-Medtronic, Philips & Siemens | Exploring Claude, Codex, Cursor, Gemini & OpenClaw",
     "portrait": "assets/portrait.jpg",
-    "portraitAlt": "Portrait of Md Nazmul Islam"
+    "portraitAlt": "Portrait of Md Nazmul Islam",
+    "valueStatement": "Interpretable robotics, sensing, and clinical AI for healthcare.",
+    "keywords": [
+      "Robotics",
+      "Quantum sensors",
+      "Clinical AI"
+    ]
   },
   "about": {
     "paragraphs": [
@@ -140,7 +146,9 @@
         "doctoral",
         "graduate school",
         "mechatronics"
-      ]
+      ],
+      "mark": "KS",
+      "achievement": "PhD research on robotics, sensing, and machine learning for healthcare."
     },
     {
       "id": "medtronic",
@@ -157,7 +165,9 @@
         "hugo",
         "robotic-assisted surgery",
         "robotic assisted surgery"
-      ]
+      ],
+      "mark": "MD",
+      "achievement": "Supported clinical imaging systems and the Hugo™ robotic-assisted surgery platform in hospitals."
     },
     {
       "id": "philips",
@@ -172,7 +182,9 @@
         "philips",
         "what did he work on at philips",
         "phillips"
-      ]
+      ],
+      "mark": "PH",
+      "achievement": "Supported clinical imaging systems in hospital environments."
     },
     {
       "id": "siemens",
@@ -186,7 +198,9 @@
       "match": [
         "siemens",
         "what did he work on at siemens"
-      ]
+      ],
+      "mark": "SI",
+      "achievement": "Supported clinical imaging systems in hospital environments."
     }
   ],
   "skills": [
@@ -249,7 +263,9 @@
         "multi agent",
         "orchestrator",
         "local models"
-      ]
+      ],
+      "image": "assets/projects/multi-agent-system.jpg",
+      "imageAlt": "Live dashboard of the multi-agent system"
     },
     {
       "id": "orca-draw",
@@ -265,7 +281,9 @@
         "orca draw",
         "whiteboard",
         "excalidraw"
-      ]
+      ],
+      "image": "assets/projects/orca-draw.jpg",
+      "imageAlt": "Orca Draw whiteboard in the browser"
     },
     {
       "id": "passport-photo-studio",
@@ -280,7 +298,9 @@
         "passport photo",
         "visa photo",
         "photo studio"
-      ]
+      ],
+      "image": "assets/projects/passport-photo-studio.jpg",
+      "imageAlt": "Passport Photo Studio in the browser"
     },
     {
       "id": "simple-typescript-app-01",
@@ -334,7 +354,9 @@
         "northstar",
         "pdf reader",
         "markdown reader"
-      ]
+      ],
+      "image": "assets/projects/northstar-reader.jpg",
+      "imageAlt": "Northstar reading a PDF"
     },
     {
       "id": "xerviolab-v1",
@@ -374,7 +396,9 @@
         "event talks",
         "bigquery",
         "release notes"
-      ]
+      ],
+      "image": "assets/projects/nazmul-event-talks-app.svg",
+      "imageAlt": "Cover for Nazmul-event-talks-app, a Python and Flask project"
     },
     {
       "id": "x-business-ideas-scout",
@@ -439,5 +463,12 @@
       "endpoint": "",
       "note": "Optional. Set enabled to true and endpoint to a Cloudflare Worker URL that proxies an LLM. Leave disabled to answer only in the browser. Never put an API key in this file."
     }
+  },
+  "talks": [],
+  "beyond": {
+    "intro": "",
+    "hometown": "",
+    "hobbies": [],
+    "gallery": []
   }
 }

@@ -16,8 +16,17 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nazmulislam-lab.github.io/" />
-    <meta property="og:image" content="https://nazmulislam-lab.github.io/assets/portrait.jpg" />
+    <meta property="og:image" content="https://nazmulislam-lab.github.io/assets/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Md Nazmul Islam, PhD candidate at Kent State University" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Md Nazmul Islam" />
+    <meta name="twitter:description" content="Interpretable robotics, sensing, and clinical AI for healthcare." />
+    <meta name="twitter:image" content="https://nazmulislam-lab.github.io/assets/og.jpg" />
+    <link rel="canonical" href="https://nazmulislam-lab.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="image" href="assets/portrait.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -52,8 +61,10 @@
       <nav id="site-nav" class="site-nav" data-nav>
         <a href="#about">About</a>
         <a href="#research">Research</a>
+        <a href="#publications" data-nav-publications hidden>Publications</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#beyond" data-nav-beyond hidden>Beyond work</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
@@ -63,7 +74,7 @@
     </header>
 
     <main id="main">
-      <p class="status" data-status role="status">Loading profile…</p>
+      <p class="status" data-status role="status" hidden>Loading profile…</p>
 
       <section class="hero" id="top">
         <div class="hero-copy">
@@ -73,25 +84,39 @@
             <span data-affiliation>Kent State University</span>
           </p>
           <h1 data-name>Md Nazmul Islam</h1>
-          <p class="lede" data-bio></p>
+          <p class="value" data-value>Interpretable robotics, sensing, and clinical AI for healthcare.</p>
+          <ul class="keywords" data-keywords>
+            <li>Robotics</li>
+            <li>Quantum sensors</li>
+            <li>Clinical AI</li>
+          </ul>
           <p class="hero-meta">
             <span data-field>Mechatronics, Robotics &amp; Automation Engineering</span>
             <span class="dot" aria-hidden="true"></span>
             <span data-location>Kent, Ohio</span>
           </p>
+          <p class="previous" data-previous>Previously Medtronic, Philips, and Siemens.</p>
           <div class="hero-actions">
-            <a class="button button-primary" data-email-link href="mailto:nazmul87@gmail.com">Email Nazmul</a>
+            <a class="button button-primary" data-linkedin-link href="https://www.linkedin.com/in/nazmul87">LinkedIn</a>
+            <a class="button button-ghost" data-email-link href="mailto:nazmul87@gmail.com">Email</a>
             <a class="button button-ghost" data-github-link href="https://github.com/nazmulislam-lab">GitHub</a>
+            <a class="button button-ghost" data-cv-link href="" hidden>Download CV</a>
             <button class="button button-ghost" type="button" data-ask-open>Ask about Nazmul</button>
           </div>
         </div>
-        <figure class="portrait-wrap">
-          <div class="rings" aria-hidden="true"></div>
-          <img data-portrait width="460" height="460" alt="" />
+        <figure class="portrait-slot">
+          <img
+            data-portrait
+            src="assets/portrait.jpg"
+            width="640"
+            height="800"
+            alt="Portrait of Md Nazmul Islam"
+            fetchpriority="high"
+          />
         </figure>
       </section>
 
-      <section id="about" class="section">
+      <section id="about" class="section reveal">
         <div class="section-head">
           <p class="kicker">About</p>
           <h2>Clinical systems, then a research path.</h2>
@@ -102,7 +127,7 @@
         </div>
       </section>
 
-      <section id="research" class="section">
+      <section id="research" class="section reveal">
         <div class="section-head">
           <p class="kicker">Research interests</p>
           <h2>Robotics, sensing, and interpretable clinical AI.</h2>
@@ -110,15 +135,21 @@
         <div class="card-grid" data-research></div>
       </section>
 
-      <section id="publications" class="section">
+      <section id="publications" class="section reveal" data-publications-section hidden>
         <div class="section-head">
-          <p class="kicker">Selected publications</p>
-          <h2>Papers listed on his public profile.</h2>
+          <p class="kicker" data-publications-kicker>Publications</p>
+          <h2 data-publications-title>Selected publications</h2>
         </div>
-        <ol class="papers" data-publications></ol>
+        <div data-papers-block>
+          <ol class="papers" data-publications></ol>
+        </div>
+        <div data-talks-block hidden>
+          <h3 class="subhead">Talks</h3>
+          <ol class="papers" data-talks></ol>
+        </div>
       </section>
 
-      <section id="experience" class="section">
+      <section id="experience" class="section reveal">
         <div class="section-head">
           <p class="kicker">Experience</p>
           <h2>Kent State, and earlier field work in hospitals.</h2>
@@ -126,7 +157,7 @@
         <div class="timeline" data-experience></div>
       </section>
 
-      <section id="projects" class="section">
+      <section id="projects" class="section reveal">
         <div class="section-head">
           <p class="kicker">Projects</p>
           <h2>Software on his public GitHub.</h2>
@@ -134,7 +165,17 @@
         <div class="project-grid" data-projects></div>
       </section>
 
-      <section id="contact" class="section">
+      <section id="beyond" class="section reveal" data-beyond-section hidden>
+        <div class="section-head">
+          <p class="kicker">Beyond work</p>
+          <h2>Life outside the lab.</h2>
+        </div>
+        <div class="prose" data-beyond-copy></div>
+        <ul class="hobbies" data-hobbies></ul>
+        <div class="gallery" data-gallery></div>
+      </section>
+
+      <section id="contact" class="section reveal">
         <div class="section-head">
           <p class="kicker">Contact</p>
           <h2>A note goes a long way.</h2>
@@ -181,6 +222,7 @@
       </section>
     </div>
 
+    <script type="application/ld+json" id="person-ld"></script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
