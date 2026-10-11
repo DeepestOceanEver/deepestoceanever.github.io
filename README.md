@@ -15,12 +15,13 @@ Change a fact there, commit, and push to `main`. Refresh the site. You do not ne
 | Name, title, location, short bio, hero line, keywords | `person` (`valueStatement`, `keywords`) |
 | Longer about text | `about.paragraphs` |
 | Research interests | `research` |
+| Education | `education` (`school`, `degree`, `dates`, `gpa`, `standing`, `thesis`, `advisor`). Leave a field `""` to hide it. |
 | Papers | `publications` (the section hides when this and `talks` are both empty). A paper is `{ "title", "authors": [], "type": "journal" or "conference", "venue", "year", "date", "url" }`. The page bolds the name in `person.name` inside each author list. `url` should be the paper’s DOI link; leave it empty only if you cannot find one. |
 | Talks | `talks` (leave `[]` until you have a real talk) |
-| Jobs | `experience`. Leave `dates` as `""` to hide them. `achievement` is the one line on the timeline |
+| Jobs | `experience`. `dates` is the timeline label (for example `Aug 2024 – Present`). `duties` is the bullet list. Leave `dates` as `""` only when a range is unknown. |
 | Skills | `skills` |
 | Projects | `projects` (`image` is the card preview) |
-| Email, GitHub, LinkedIn, WhatsApp, Google Scholar, CV | `contact`. LinkedIn is `https://www.linkedin.com/in/nazmul87/`. WhatsApp is `contact.whatsapp` (`https://wa.me/12342829758`) and `contact.whatsappLabel` (`+1 234-282-9758`); both the hero button and the contact card hide if `whatsapp` is empty. `scholar` is the Google Scholar profile URL. |
+| Email, GitHub, LinkedIn, WhatsApp, Google Scholar, CV | `contact`. LinkedIn is `https://www.linkedin.com/in/nazmul87/`. WhatsApp is `contact.whatsapp` (`https://wa.me/12342829758`) and `contact.whatsappLabel` (`+1 234-282-9758`); both the hero button and the contact card hide if `whatsapp` is empty. `scholar` is the Google Scholar profile URL. `cv` is `assets/cv.pdf`. |
 | Hobbies, hometown, gallery | `beyond` (the section hides until something is filled) |
 | Suggested chat questions and the “I don’t know” line | `chat` |
 
@@ -34,10 +35,9 @@ The hero portrait is a fixed frame (`assets/portrait.jpg`, or whatever path you 
 
 Empty strings are not shown on the page or in the chat. Do not put notes like “TODO” in `data/profile.json`; visitors would see them. Keep editor notes in this README.
 
-- **Dates.** Each job has `"dates": ""`. Set a real range, such as `"2021 – 2024"`, when you know it. Still unknown: Kent State, Medtronic, Philips, and Siemens.
-- **Kent State.** The public profile does not name an advisor or lab.
-- **Industry roles.** The public profile describes field technical specialist and service engineer work across Medtronic, Philips, and Siemens, supporting clinical imaging systems and the Hugo™ robotic-assisted surgery platform. It does not give a separate title, site, or product line for each company. Hugo™ RAS is Medtronic’s surgical robotics system.
-- **CV.** `contact.cv` is `""`, so the Download CV button stays hidden in the hero and the contact section. Add a URL, or put a PDF at `assets/cv.pdf` and set `contact.cv` to `assets/cv.pdf`.
+- **CV file.** `assets/cv.pdf` is the CV he approved for download. Replace that file and keep `contact.cv` set to `assets/cv.pdf`. The hero and contact section show Download CV only when `contact.cv` is set.
+- **Not on the page.** The street address and the references’ email addresses stay in the PDF only. Do not copy them into `profile.json`.
+- **Blank on purpose.** The CV marks the Kent State thesis and academic standing as NA, so those `education` fields are `""` and stay hidden. There is no awards or test-score section because the CV does not list any.
 - **Talks.** `talks` is `[]`. A talk is `{ "title": "", "event": "", "year": "", "url": "" }`. Empty `url` still shows the title. The talks list stays hidden until at least one title is set. No public talks were found in the profile or repos.
 - **Beyond work.** `beyond.intro`, `beyond.hometown`, `beyond.hobbies`, and `beyond.gallery` are empty, so the section is hidden. A gallery photo is `{ "src": "assets/gallery/photo.jpg", "alt": "Describe the photo" }`. Fill any of those fields to show the section.
 - **Link preview.** Shared links use `assets/og.jpg` (1200×630). Replace that file if you want a different preview image.

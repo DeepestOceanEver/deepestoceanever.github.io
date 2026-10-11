@@ -32,6 +32,12 @@ export function answerQuestion(profile, question) {
   if (isResearchListQuestion(q)) {
     return { text: formatResearch(profile), confident: true };
   }
+  if (isEducationQuestion(q)) {
+    return { text: formatEducation(profile), confident: true };
+  }
+  if (isCertificationQuestion(q)) {
+    return { text: formatCertifications(profile), confident: true };
+  }
   const namedPaper = matchPublication(profile, q);
   if (namedPaper) {
     return { text: formatOnePublication(namedPaper), confident: true };
@@ -89,12 +95,30 @@ export function buildDocs(profile) {
     match: ["publications", "papers", "published", "publication", "scholar"]
   });
 
+  for (const school of profile.education || []) {
+    docs.push({
+      id: `education:${school.id}`,
+      title: school.school,
+      text: formatOneEducation(school),
+      match: school.match || []
+    });
+  }
+
   for (const job of profile.experience) {
     docs.push({
       id: `experience:${job.id}`,
       title: job.org,
-      text: visitorText(job.summary),
+      text: formatJob(job),
       match: job.match || []
+    });
+  }
+
+  if ((profile.certifications || []).length) {
+    docs.push({
+      id: "certifications",
+      title: "Certifications",
+      text: formatCertifications(profile),
+      match: ["certification", "certifications", "certificate", "training", "coursera", "workera"]
     });
   }
 
@@ -158,7 +182,7 @@ function formatContact(profile) {
   if (visitorText(c.scholar)) lines.push(`Google Scholar: ${c.scholar}`);
   if (c.collaboration) lines.push(c.collaboration);
   const cv = visitorText(c.cv);
-  if (cv) lines.push(`CV: ${cv}`);
+  if (cv) lines.push(`CV: ${cvUrl(cv)}`);
   return lines.join("\n");
 }
 
@@ -168,12 +192,57 @@ function visitorText(value) {
   return text;
 }
 
+function cvUrl(path) {
+  if (/^https?:/i.test(path)) return path;
+  return `https://nazmulislam-lab.github.io/${String(path).replace(/^\//, "")}`;
+}
+
 function formatResearch(profile) {
-  const lines = ["His research interests, from his public profile:", ""];
+  const lines = ["His research interests, from his CV:", ""];
   for (const item of profile.research) {
-    lines.push(`• ${item.title} — ${item.summary}`);
+    const summary = visitorText(item.summary);
+    lines.push(summary ? `• ${item.title} — ${summary}` : `• ${item.title}`);
   }
   return lines.join("\n");
+}
+
+function formatEducation(profile) {
+  const lines = ["Education from his CV:", ""];
+  for (const school of profile.education || []) lines.push(formatOneEducation(school), "");
+  return lines.join("\n").trim();
+}
+
+function formatOneEducation(school) {
+  const lines = [school.degree, [school.school, school.location].filter(Boolean).join(", ")];
+  if (visitorText(school.dates)) lines.push(school.dates);
+  if (visitorText(school.gpa)) lines.push(`CGPA ${school.gpa}`);
+  if (visitorText(school.standing)) lines.push(school.standing);
+  if (visitorText(school.advisor)) lines.push(`Advisor: ${school.advisor}`);
+  if (visitorText(school.thesis)) lines.push(`Thesis: ${school.thesis}`);
+  return lines.join("\n");
+}
+
+function formatJob(job) {
+  const lines = [`${job.role} at ${job.org}.`];
+  if (visitorText(job.dates)) lines.push(job.dates);
+  if (visitorText(job.location)) lines.push(job.location);
+  if (visitorText(job.summary)) lines.push(job.summary);
+  for (const duty of job.duties || []) {
+    if (visitorText(duty)) lines.push(`• ${duty}`);
+  }
+  return lines.join("\n");
+}
+
+function formatCertifications(profile) {
+  const lines = ["Training and certificates from his CV:", ""];
+  for (const group of profile.certifications || []) {
+    const items = (group.items || []).filter((item) => visitorText(item));
+    if (!items.length) continue;
+    lines.push(group.group);
+    for (const item of items) lines.push(`• ${item}`);
+    lines.push("");
+  }
+  return lines.join("\n").trim();
 }
 
 function formatPublications(profile) {
@@ -256,6 +325,15 @@ function isContactQuestion(q) {
 
 function isResearchListQuestion(q) {
   return /\b(research interests|areas of research|what does he research|what is his research|research focus|his research)\b/.test(q);
+}
+
+function isEducationQuestion(q) {
+  if (/\b(medtronic|philips|siemens|daffodil|hugo)\b/.test(q) && !/\b(gpa|cgpa|advisor|thesis|degree)\b/.test(q)) return false;
+  return /\b(education|degree|degrees|gpa|cgpa|advisor|thesis|studied|study|studying|bachelor|bsc|master|masters|msc|phd|brac|cuet)\b/.test(q);
+}
+
+function isCertificationQuestion(q) {
+  return /\b(certifications?|certificates?|coursera|workera)\b/.test(q);
 }
 
 function isPublicationQuestion(q) {

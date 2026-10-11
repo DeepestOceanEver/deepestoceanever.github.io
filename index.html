@@ -60,9 +60,11 @@
       </button>
       <nav id="site-nav" class="site-nav" data-nav>
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#research">Research</a>
         <a href="#publications" data-nav-publications hidden>Publications</a>
         <a href="#experience">Experience</a>
+        <a href="#certifications" data-nav-certifications hidden>Training</a>
         <a href="#projects">Projects</a>
         <a href="#beyond" data-nav-beyond hidden>Beyond work</a>
         <a href="#contact">Contact</a>
@@ -128,12 +130,20 @@
         </div>
       </section>
 
+      <section id="education" class="section reveal">
+        <div class="section-head">
+          <p class="kicker">Education</p>
+          <h2>Kent State, BRAC University, and CUET.</h2>
+        </div>
+        <div class="edu-list" data-education></div>
+      </section>
+
       <section id="research" class="section reveal">
         <div class="section-head">
           <p class="kicker">Research interests</p>
           <h2>Robotics, sensing, and interpretable clinical AI.</h2>
         </div>
-        <div class="card-grid" data-research></div>
+        <ul class="interests" data-research></ul>
       </section>
 
       <section id="publications" class="section reveal" data-publications-section hidden>
@@ -162,9 +172,17 @@
       <section id="experience" class="section reveal">
         <div class="section-head">
           <p class="kicker">Experience</p>
-          <h2>Kent State, and earlier field work in hospitals.</h2>
+          <h2>Graduate assistant, then field service and teaching.</h2>
         </div>
         <div class="timeline" data-experience></div>
+      </section>
+
+      <section id="certifications" class="section reveal" data-certifications-section hidden>
+        <div class="section-head">
+          <p class="kicker">Training</p>
+          <h2>Courses and professional certificates.</h2>
+        </div>
+        <div data-certifications></div>
       </section>
 
       <section id="projects" class="section reveal">
