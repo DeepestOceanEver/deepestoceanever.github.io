@@ -71,6 +71,28 @@ Public repositories that are linked today:
 
 Descriptions for those five come from the GitHub API or each repository’s README. The profile text comes from the GitHub bio and from [nazmulislam-lab/nazmulislam-lab](https://github.com/nazmulislam-lab/nazmulislam-lab).
 
+## Add a blog post
+
+Posts live in [`blog/posts/`](blog/posts/) as Markdown. There is no build step. GitHub Pages serves them because `.nojekyll` is in the repo root.
+
+1. Add `blog/posts/my-note.md` with this shape:
+
+```markdown
+---
+title: My note
+date: 2026-10-11
+tags: robotics, ai
+---
+
+The note, in first person. Use only facts already on the site or in the CV.
+```
+
+2. Add an entry to [`blog/posts.json`](blog/posts.json): `"slug"`, `"title"`, `"date"`, `"tags"`, and `"file"` (for example `posts/my-note.md`). The slug is the `?slug=` value on `blog/post.html`.
+3. Add an `<item>` to [`feed.xml`](feed.xml) with the same title, date, and link `https://nazmulislam-lab.github.io/blog/post.html?slug=my-note`.
+4. Commit and push. The blog index, the homepage “Latest posts” strip, and the post page all read `posts.json`.
+
+Markdown supported in the browser: paragraphs, `#` / `##` / `###` headings, `-` lists, `**bold**`, `*italic*`, and links. Reading time is about 200 words a minute.
+
 ## Preview locally
 
 From this folder:

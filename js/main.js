@@ -1,4 +1,5 @@
 import { initChat } from "./chat.js";
+import { loadPosts, postHref, renderPostCards } from "./blog.js";
 
 const THEME_KEY = "nazmul-theme";
 
@@ -83,6 +84,8 @@ function renderProfile(profile) {
   renderCertifications(profile.certifications);
   renderProjects(profile.projects);
   renderBeyond(profile.beyond);
+  renderCollaborate(profile);
+  renderLatestPosts();
   renderContact(profile);
   renderStructuredData(profile);
   initReveal();
@@ -201,7 +204,7 @@ function renderPrevious(jobs) {
   const node = document.querySelector("[data-previous]");
   if (!node) return;
   const names = jobs.filter((job) => !job.current && !isPlaceholder(job.org)).map((job) => job.org);
-  node.textContent = names.length ? `Previously ${joinNames(names)}` : "";
+  node.textContent = names.length ? `I previously worked at ${joinNames(names)}.` : "";
   node.hidden = !node.textContent;
 }
 
@@ -254,10 +257,10 @@ function renderPublications(profile) {
   const kicker = document.querySelector("[data-publications-kicker]");
   if (papers.length && talks.length) {
     if (kicker) kicker.textContent = "Publications and talks";
-    if (title) title.textContent = "Papers and talks from his public profile.";
+    if (title) title.textContent = "Papers and talks from my public profile.";
   } else if (talks.length) {
     if (kicker) kicker.textContent = "Talks";
-    if (title) title.textContent = "Talks from his public profile.";
+    if (title) title.textContent = "Talks from my public profile.";
   }
   const visible = papers.length + talks.length > 0;
   if (section) section.hidden = !visible;
@@ -447,6 +450,48 @@ function renderBeyond(beyond) {
       grid.append(figure);
     }
   }
+}
+
+function renderCollaborate(profile) {
+  const copy = document.querySelector("[data-collab-copy]");
+  const actions = document.querySelector("[data-collab-actions]");
+  const title = document.querySelector("[data-collab-title]");
+  const block = profile.collaborate || {};
+  if (title && !isPlaceholder(block.title)) title.textContent = block.title;
+  if (copy) {
+    copy.replaceChildren();
+    for (const paragraph of block.paragraphs || []) {
+      if (isPlaceholder(paragraph)) continue;
+      const p = document.createElement("p");
+      p.textContent = paragraph;
+      copy.append(p);
+    }
+  }
+  if (!actions) return;
+  actions.replaceChildren();
+  const c = profile.contact || {};
+  if (!isPlaceholder(c.email)) {
+    actions.append(textLink(`mailto:${c.email}?subject=${encodeURIComponent("Collaboration")}`, "Email", "button button-primary"));
+  }
+  if (!isPlaceholder(c.linkedin)) actions.append(textLink(c.linkedin, "LinkedIn", "button button-ghost"));
+  if (!isPlaceholder(c.whatsapp)) actions.append(textLink(c.whatsapp, "WhatsApp", "button button-ghost"));
+  if (!isPlaceholder(c.scholar)) actions.append(textLink(c.scholar, "Google Scholar", "button button-ghost"));
+}
+
+function renderLatestPosts() {
+  const section = document.querySelector("[data-latest-section]");
+  const root = document.querySelector("[data-latest-posts]");
+  if (!section || !root) return;
+  loadPosts("blog/posts.json")
+    .then((posts) => {
+      if (!posts.length) return;
+      renderPostCards(root, posts.slice(0, 3), "blog/");
+      section.hidden = false;
+      section.classList.add("is-in");
+    })
+    .catch(() => {
+      section.hidden = true;
+    });
 }
 
 function renderContact(profile) {

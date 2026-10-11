@@ -228,6 +228,9 @@ h3 { margin: 0; font-size: 1.45rem; }
 
 .lede { font-size: 1.15rem; max-width: 42rem; color: var(--ink); }
 
+.lede + .project-grid,
+.lede + .post-list { margin-top: 1.2rem; }
+
 .hero-actions, .project-links, .contact-grid {
   display: flex;
   flex-wrap: wrap;
@@ -723,6 +726,33 @@ h3 { margin: 0; font-size: 1.45rem; }
 }
 
 .cert-group + .cert-group { margin-top: 0.4rem; }
+
+.post-list { display: grid; gap: 1rem; }
+
+.post-card {
+  padding: 1.1rem 1.15rem 1.2rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.post-card h3 { margin: 0 0 0.35rem; font-size: 1.35rem; }
+
+.post-card h3 a,
+.post-body a { color: var(--ink); }
+
+.post-meta { margin: 0.2rem 0 0.55rem; color: var(--muted); font-size: 0.92rem; }
+
+.blog-main { padding-top: 2.4rem; }
+
+.blog-main h1 { margin: 0.2rem 0 0.6rem; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.05; }
+
+.post-body { max-width: 42rem; margin-top: 1.2rem; }
+
+.post-body h2,
+.post-body h3 { margin: 1.4rem 0 0.4rem; }
+
+#collaborate .hero-actions { margin-top: 1.2rem; }
 
 .project-card { padding: 0; overflow: hidden; }
 

@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "slug": "welcome",
+      "title": "Welcome to my site",
+      "date": "2026-10-11",
+      "tags": ["welcome", "robotics", "ai"],
+      "file": "posts/welcome.md"
+    }
+  ]
+}
